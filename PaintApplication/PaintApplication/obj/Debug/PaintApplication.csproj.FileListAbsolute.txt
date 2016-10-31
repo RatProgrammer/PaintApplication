@@ -1,0 +1,18 @@
+c:\users\michael\documents\visual studio 2015\Projects\PaintApplication\PaintApplication\bin\Debug\PaintApplication.exe.config
+c:\users\michael\documents\visual studio 2015\Projects\PaintApplication\PaintApplication\bin\Debug\PaintApplication.exe
+c:\users\michael\documents\visual studio 2015\Projects\PaintApplication\PaintApplication\bin\Debug\PaintApplication.pdb
+c:\users\michael\documents\visual studio 2015\Projects\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csprojResolveAssemblyReference.cache
+c:\users\michael\documents\visual studio 2015\Projects\PaintApplication\PaintApplication\obj\Debug\PaintApplication.Properties.Resources.resources
+c:\users\michael\documents\visual studio 2015\Projects\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csproj.GenerateResource.Cache
+c:\users\michael\documents\visual studio 2015\Projects\PaintApplication\PaintApplication\obj\Debug\PaintApplication.exe
+c:\users\michael\documents\visual studio 2015\Projects\PaintApplication\PaintApplication\obj\Debug\PaintApplication.pdb
+c:\users\michael\documents\visual studio 2015\Projects\PaintApplication\PaintApplication\obj\Debug\PaintApplication.View.PaintForm.resources
+C:\Users\Aleksanra\Desktop\PaintApplication\PaintApplication\bin\Debug\PaintApplication.exe.config
+C:\Users\Aleksanra\Desktop\PaintApplication\PaintApplication\obj\Debug\PaintApplication.exe
+C:\Users\Aleksanra\Desktop\PaintApplication\PaintApplication\obj\Debug\PaintApplication.pdb
+C:\Users\Aleksanra\Desktop\PaintApplication\PaintApplication\bin\Debug\PaintApplication.exe
+C:\Users\Aleksanra\Desktop\PaintApplication\PaintApplication\bin\Debug\PaintApplication.pdb
+C:\Users\Aleksanra\Desktop\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csprojResolveAssemblyReference.cache
+C:\Users\Aleksanra\Desktop\PaintApplication\PaintApplication\obj\Debug\PaintApplication.View.PaintForm.resources
+C:\Users\Aleksanra\Desktop\PaintApplication\PaintApplication\obj\Debug\PaintApplication.Properties.Resources.resources
+C:\Users\Aleksanra\Desktop\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csproj.GenerateResource.Cache
