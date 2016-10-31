@@ -46,9 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ToolType.cs" />
+    <Compile Include="Model\Commands\PencilCommand.cs" />
+    <Compile Include="Model\NullObjectCommand.cs" />
+    <Compile Include="Model\PaintCommandFactory.cs" />
+    <Compile Include="Model\PaintToolType.cs" />
+    <Compile Include="Model\Commands\IPaintCommand.cs" />
+    <Compile Include="Model\WydzielonyPoint.cs" />
+    <Compile Include="Model\Canvas.cs" />
     <Compile Include="Presenter\PaintPresenter.cs" />
-    <Compile Include="View\Canvas.cs">
+    <Compile Include="Model\PaintTool.cs" />
+    <Compile Include="View\CanvasControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\PaintForm.cs">
@@ -84,8 +91,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Model\Commands\" />
+    <Content Include="Source\pencil2.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

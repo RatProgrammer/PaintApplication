@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using PaintApplication.Model;
+using PaintApplication.Model.Commands;
 using PaintApplication.View;
 
 namespace PaintApplication.Presenter
@@ -9,52 +11,38 @@ namespace PaintApplication.Presenter
     class PaintPresenter
     {
         private readonly PaintForm _paintForm;
-        private Bitmap _temporaryImage;
-        private Bitmap _actualImage;
-    
+        private Canvas _canvas;
+        private readonly PaintTool _paintTool;
+        private  IPaintCommand _paintCommand;
 
-
-        private Point startPoint=new Point(0,0);
-        private Point endPoint=new Point(0,0);
-        private Graphics graphics;
-
-
-        public PaintPresenter(PaintForm paintForm)
+        public PaintPresenter(PaintForm paintForm, Canvas canvas, PaintTool paintTool)
         {
             _paintForm = paintForm;
             _paintForm.StartPaintAction += ExecuteStartPaintAction;
             _paintForm.StopPaintAction += ExecuteStopPaintAction;
-
-            _temporaryImage = new Bitmap(433,319);
-            _actualImage = new Bitmap(433,319);
+            _paintForm.PencilDrawAction += ExecuteToolAction;
+            _canvas = canvas;
+            _paintTool = paintTool;
+            _paintCommand=new NullObjectCommand();
         }
 
-        private void ExecuteStopPaintAction(MouseEventArgs e)
+        private void ExecuteToolAction()
         {
-            startPoint.X = 0;
-            startPoint.Y = 0;
-            endPoint.X = 0;
-            endPoint.Y=0;
+            _paintCommand=PaintCommandFactory.GetPaintCommand(PaintToolType.Pencil);
+            _paintTool.Color = Color.Black;
+            _paintTool.Pen = new Pen(Color.Black, 1);
         }
 
-        private void ExecuteStartPaintAction(MouseEventArgs e)
+        private void ExecuteStopPaintAction(Point point)
         {
-            startPoint.X = e.X;
-            startPoint.Y = e.Y;
-            if (endPoint.X == 0 && endPoint.Y == 0)
-            {
-                _actualImage.SetPixel(startPoint.X, startPoint.Y, Color.Black);
-                _paintForm.UpdateCanvas(_actualImage);
-            }
-            else
-            {
-                startPoint = e.Location;
-                Pen pen = new Pen(Color.Black, 2);
-                graphics = Graphics.FromImage(_actualImage);
-                graphics.DrawLine(pen, startPoint, endPoint);
-                _paintForm.UpdateCanvas(_actualImage);
-            }
-            endPoint = startPoint;
+            _canvas = _paintCommand.ExecuteStop(_canvas, _paintTool, point);
+            _paintForm.UpdateCanvas(_canvas.GetCurrentBitmap());
+        }
+
+        private void ExecuteStartPaintAction(Point point)
+        {
+            _canvas = _paintCommand.ExecuteStart(_canvas, _paintTool, point);
+            _paintForm.UpdateCanvas(_canvas.GetCurrentBitmap());
         }
 
         public void RunApp()

@@ -5,7 +5,7 @@ using PaintApplication.Model;
 
 namespace PaintApplication.View
 {
-    public class Canvas : PictureBox
+    public class CanvasControl : PictureBox
     {
         public event Action<MouseEventArgs> StartPaint;
         public event Action<MouseEventArgs> StopPaint;

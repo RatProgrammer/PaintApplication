@@ -17,7 +17,9 @@ namespace PaintApplication
         static void Main()
         { 
             PaintForm paintForm = new PaintForm();
-            PaintPresenter paintPresenter = new PaintPresenter(paintForm);
+            Canvas canvas = new Canvas(400, 400);
+            PaintTool paintTool = new PaintTool();
+            PaintPresenter paintPresenter = new PaintPresenter(paintForm, canvas, paintTool);
             paintPresenter.RunApp();
 
         }
