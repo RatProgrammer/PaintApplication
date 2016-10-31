@@ -20,5 +20,10 @@ namespace PaintApplication.Model
         {
             return canvas;
         }
+
+        public Canvas ExecuteMove(Canvas canvas, PaintTool paintTool, Point point)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

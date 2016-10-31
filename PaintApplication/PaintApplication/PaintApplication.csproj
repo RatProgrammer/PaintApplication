@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Commands\LineCommand.cs" />
     <Compile Include="Model\Commands\PencilCommand.cs" />
     <Compile Include="Model\Commands\RubberCommand.cs" />
     <Compile Include="Model\NullObjectCommand.cs" />

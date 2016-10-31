@@ -17,15 +17,9 @@ namespace PaintApplication.Model.Commands
             Bitmap bitmap = canvas.GetCurrentBitmap();
             Point startPoint = point;
             paintTool.Pen = new Pen(Color.White,5);
-            if (_previousPoint.X == 0 && _previousPoint.Y == 0)
-            {
+
                 bitmap.SetPixel(startPoint.X, startPoint.Y, paintTool.Color);
-            }
-            else
-            {
-                _graphics = Graphics.FromImage(bitmap);
-                _graphics.DrawLine(paintTool.Pen, startPoint, _previousPoint);
-            }
+
             canvas.SetCurrentBitmap(bitmap);
             _previousPoint = new Point(startPoint.X, startPoint.Y);
 
@@ -36,6 +30,20 @@ namespace PaintApplication.Model.Commands
         {
             _previousPoint = new Point(0, 0);
             return canvas;
+        }
+
+        public Canvas ExecuteMove(Canvas canvas, PaintTool paintTool, Point point)
+        {
+            Bitmap bitmap = canvas.GetCurrentBitmap();
+            Point startPoint = point;
+            paintTool.Pen = new Pen(Color.White, 5);
+            _graphics = Graphics.FromImage(bitmap);
+            _graphics.DrawLine(paintTool.Pen, startPoint, _previousPoint);
+            canvas.SetCurrentBitmap(bitmap);
+            _previousPoint = new Point(startPoint.X, startPoint.Y);
+
+            return canvas;
+
         }
     }
 }

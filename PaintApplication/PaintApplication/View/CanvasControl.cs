@@ -9,6 +9,7 @@ namespace PaintApplication.View
     {
         public event Action<MouseEventArgs> StartPaint;
         public event Action<MouseEventArgs> StopPaint;
+        public event Action<MouseEventArgs> MovePaint;
 
 
         protected override void OnMouseDown(MouseEventArgs e)
@@ -25,7 +26,7 @@ namespace PaintApplication.View
             base.OnMouseMove(e);
             if (e.Button == MouseButtons.Left)
             {
-                OnCanvasStartPaint(e);
+                OnCanvasMove(e);
             }
         }
 
@@ -43,6 +44,11 @@ namespace PaintApplication.View
         protected virtual void OnCanvasStopPaint(MouseEventArgs e)
         {
             StopPaint?.Invoke(e);
+        }
+
+        protected virtual void OnCanvasMove(MouseEventArgs e)
+        {
+            MovePaint?.Invoke(e);
         }
 
 

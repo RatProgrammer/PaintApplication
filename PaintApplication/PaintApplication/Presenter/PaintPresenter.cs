@@ -20,10 +20,17 @@ namespace PaintApplication.Presenter
             _paintForm = paintForm;
             _paintForm.StartPaintAction += ExecuteStartPaintAction;
             _paintForm.StopPaintAction += ExecuteStopPaintAction;
-            _paintForm.ToolAction+= ExecuteToolAction;
+            _paintForm.ToolAction += ExecuteToolAction;
+            _paintForm.MovePaintAction += ExecuteMovePaintAction;
             _canvas = canvas;
             _paintTool = paintTool;
             _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
+        }
+
+        private void ExecuteMovePaintAction(Point obj)
+        {
+            _canvas = _paintCommand.ExecuteMove(_canvas, _paintTool, obj);
+            _paintForm.UpdateCanvas(_canvas.GetCurrentBitmap());
         }
 
         private void ExecuteToolAction(PaintToolType paintToolType)

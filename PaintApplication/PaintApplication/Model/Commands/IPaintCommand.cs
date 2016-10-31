@@ -7,5 +7,6 @@ namespace PaintApplication.Model.Commands
     {
         Canvas ExecuteStart(Canvas canvas, PaintTool paintTool, Point point);
         Canvas ExecuteStop(Canvas canvas, PaintTool paintTool,Point point);
+        Canvas ExecuteMove(Canvas canvas, PaintTool paintTool, Point point);
     }
 }

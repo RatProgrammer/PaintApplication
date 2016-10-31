@@ -11,6 +11,7 @@ namespace PaintApplication.View
         public event Action<Point> StartPaintAction;
         public event Action<Point> StopPaintAction;
         public event Action <PaintToolType>ToolAction;
+        public event Action<Point> MovePaintAction;
 
         public PaintForm()
         {
@@ -22,6 +23,12 @@ namespace PaintApplication.View
         {
             canvasControl.StartPaint += canvas_StartPaint;
             canvasControl.StopPaint += canvas_StopPaint;
+            canvasControl.MovePaint += canvas_MovePaint;
+        }
+
+        private void canvas_MovePaint(MouseEventArgs e)
+        {
+            MovePaintAction?.Invoke(e.Location);
         }
 
         private void canvas_StartPaint(MouseEventArgs e)

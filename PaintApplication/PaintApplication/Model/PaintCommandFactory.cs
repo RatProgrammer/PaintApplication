@@ -25,6 +25,8 @@ namespace PaintApplication.Model
                 case PaintToolType.Circle:
                     return new NullObjectCommand();
                     break;
+                case PaintToolType.Line:
+                    return new LineCommand();
                 default:
                     return new NullObjectCommand();
             }
