@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using PaintApplication.Model;
+using PaintApplication.Model.Utility;
 
 namespace PaintApplication.View
 {
@@ -9,7 +10,7 @@ namespace PaintApplication.View
     {
         public event Action<Point> StartPaintAction;
         public event Action<Point> StopPaintAction;
-        public event Action PencilDrawAction;
+        public event Action <PaintToolType>ToolAction;
 
         public PaintForm()
         {
@@ -39,9 +40,12 @@ namespace PaintApplication.View
             canvasControl.Refresh();
         }
 
-        private void btnPencil_Click(object sender, EventArgs e)
+        private void btnTool_Click(object sender, EventArgs e)
         {
-            PencilDrawAction?.Invoke();
+            PaintToolType paintToolType = PaintToolType.None;
+            Button button = sender as Button;
+            paintToolType = EnumUtil.ParseEnum<PaintToolType>(button?.Text);
+            ToolAction?.Invoke(paintToolType);
         }
     }
 }

@@ -20,15 +20,15 @@ namespace PaintApplication.Presenter
             _paintForm = paintForm;
             _paintForm.StartPaintAction += ExecuteStartPaintAction;
             _paintForm.StopPaintAction += ExecuteStopPaintAction;
-            _paintForm.PencilDrawAction += ExecuteToolAction;
+            _paintForm.ToolAction+= ExecuteToolAction;
             _canvas = canvas;
             _paintTool = paintTool;
-            _paintCommand=new NullObjectCommand();
+            _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
         }
 
-        private void ExecuteToolAction()
+        private void ExecuteToolAction(PaintToolType paintToolType)
         {
-            _paintCommand=PaintCommandFactory.GetPaintCommand(PaintToolType.Pencil);
+            _paintCommand=PaintCommandFactory.GetPaintCommand(paintToolType);
             _paintTool.Color = Color.Black;
             _paintTool.Pen = new Pen(Color.Black, 1);
         }

@@ -5,6 +5,9 @@
         Pencil,
         Rubber,
         Bucket,
-        Shaper
+        Circle,
+        Line,
+        Rectangle,
+        None
     }
 }

@@ -17,12 +17,12 @@ namespace PaintApplication.Model
                     return new PencilCommand();
                     break;
                 case PaintToolType.Rubber:
-                    return new NullObjectCommand();
+                    return new RubberCommand();
                     break;
                 case PaintToolType.Bucket:
                     return new NullObjectCommand();
                     break;
-                case PaintToolType.Shaper:
+                case PaintToolType.Circle:
                     return new NullObjectCommand();
                     break;
                 default:
