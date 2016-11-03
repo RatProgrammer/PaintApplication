@@ -45,3 +45,4 @@ C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.View.PaintForm.resources
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.Properties.Resources.resources
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csproj.GenerateResource.Cache
+C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csprojResolveAssemblyReference.cache

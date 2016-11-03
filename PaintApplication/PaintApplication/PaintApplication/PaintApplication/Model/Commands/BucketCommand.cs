@@ -11,17 +11,17 @@ namespace PaintApplication.Model.Commands
 {
     class BucketCommand : IPaintCommand
     {
-        public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, ref PaintTool paintTool, Point point)
+        public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
             FloodFill(current, point.X, point.Y, paintTool.Color);
         }
 
-        public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, ref PaintTool paintTool, Point point)
+        public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
 
         }
 
-        public void ExecuteMove(ref Bitmap temporary, ref Bitmap current, ref PaintTool paintTool, Point point)
+        public void ExecuteMove(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
 
         }

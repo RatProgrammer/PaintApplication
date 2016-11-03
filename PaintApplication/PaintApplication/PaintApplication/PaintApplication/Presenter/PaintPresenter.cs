@@ -41,7 +41,7 @@ namespace PaintApplication.Presenter
 
         private void ExecuteStartPaintAction(Point point)
         {
-            _paintCommand.ExecuteStart(ref _temporaryBitmap, ref _currentBitmap, ref _paintTool, point);
+            _paintCommand.ExecuteStart(ref _temporaryBitmap, ref _currentBitmap, _paintTool, point);
             _paintForm.UpdateCanvas(_currentBitmap);
         }
 
@@ -49,27 +49,25 @@ namespace PaintApplication.Presenter
         {
             using (_temporaryBitmap = new Bitmap(_currentBitmap))
             {
-                _paintCommand.ExecuteMove(ref _temporaryBitmap, ref _currentBitmap, ref _paintTool, point);
+                _paintCommand.ExecuteMove(ref _temporaryBitmap, ref _currentBitmap, _paintTool, point);
                 _paintForm.UpdateCanvas(_temporaryBitmap);
             }
         }
 
         private void ExecuteStopPaintAction(Point point)
         {
-            _paintCommand.ExecuteStop(ref _temporaryBitmap, ref _currentBitmap, ref  _paintTool, point);
+            _paintCommand.ExecuteStop(ref _temporaryBitmap, ref _currentBitmap, _paintTool, point);
             _paintForm.UpdateCanvas(_currentBitmap);
         }
 
         private void ExecuteToolAction(PaintToolType paintToolType)
         {
             _paintCommand=PaintCommandFactory.GetPaintCommand(paintToolType);
-            _paintTool.Color = _color;
-            _paintTool.Pen = new Pen(_color, 1);
         }
 
         private void ExecuteColorAction(Color color)
         {
-            _color = color;
+            _paintTool.SetColor(color);
         }
 
         public void RunApp()

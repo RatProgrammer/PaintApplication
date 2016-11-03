@@ -41,8 +41,11 @@ namespace PaintApplication.View
             this.pbColor = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.canvasControl = new PaintApplication.View.CanvasControl();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPencil
@@ -137,12 +140,29 @@ namespace PaintApplication.View
             this.canvasControl.TabIndex = 3;
             this.canvasControl.TabStop = false;
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(517, 13);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(627, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 11;
+            // 
             // PaintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(738, 561);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.pbColor);
             this.Controls.Add(this.btnLine);
             this.Controls.Add(this.btnRectangle);
@@ -155,7 +175,9 @@ namespace PaintApplication.View
             this.Text = "PaintForm";
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -169,6 +191,8 @@ namespace PaintApplication.View
         private Button btnLine;
         private PictureBox pbColor;
         private ColorDialog colorDialog1;
+        private TrackBar trackBar1;
+        private Label label1;
     }
 }
 
