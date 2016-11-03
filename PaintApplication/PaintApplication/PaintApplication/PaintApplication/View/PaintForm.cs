@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Windows.Forms;
 using PaintApplication.Model;
 using PaintApplication.Model.Utility;
@@ -14,15 +13,15 @@ namespace PaintApplication.View
         public event Action <PaintToolType>ToolAction;
         public event Action<Point> MovePaintAction;
         public event Action<Color> ColorAction;
-        public event Action<int> SizeAction;
+        public event Action<int> SizePenAction;
+        public event Action<int, int> SizeChangeAction;
 
         public PaintForm()
         {
             InitializeComponent();
+            TCResize tcResize = new TCResize(canvasControl);
             InitCanvas();
         }
-
-
 
 
         private void InitCanvas()
@@ -73,7 +72,13 @@ namespace PaintApplication.View
 
         private void sizeTrackBar_ValueChanged(object sender, EventArgs e)
         {
-            SizeAction?.Invoke(sizeTrackBar.Value);
+            SizePenAction?.Invoke(sizeTrackBar.Value);
+            label1.Text = sizeTrackBar.Value.ToString();
+        }
+
+        private void canvasControl_SizeChanged(object sender, EventArgs e)
+        {
+            SizeChangeAction?.Invoke(canvasControl.Width, canvasControl.Height);
         }
     }
 }

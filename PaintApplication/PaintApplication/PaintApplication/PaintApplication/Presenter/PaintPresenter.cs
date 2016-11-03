@@ -23,7 +23,8 @@ namespace PaintApplication.Presenter
             _paintForm.ToolAction += ExecuteToolAction;
             _paintForm.MovePaintAction += ExecuteMovePaintAction;
             _paintForm.ColorAction += ExecuteColorAction;
-            _paintForm.SizeAction += ExecuteSizeAction;
+            _paintForm.SizePenAction += ExecuteSizePenAction;
+            _paintForm.SizeChangeAction += ExecuteSizeChangeAction;
             _paintTool = paintTool;
             _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
             _currentBitmap = new Bitmap(400,400);
@@ -32,7 +33,20 @@ namespace PaintApplication.Presenter
             InitializeBitmap();
         }
 
-        private void ExecuteSizeAction(int size)
+        private void ExecuteSizeChangeAction(int width, int height)
+        {
+            using (_temporaryBitmap)
+            {
+                _temporaryBitmap = new Bitmap(width, height);
+                Graphics graphics = Graphics.FromImage(_temporaryBitmap);
+                graphics.FillRectangle(Brushes.White, 0, 0, width, height);
+                graphics.DrawImage(_currentBitmap, 0, 0, _currentBitmap.Width, _currentBitmap.Height);
+                _currentBitmap = new Bitmap(_temporaryBitmap);
+                _temporaryBitmap.Dispose();
+            }
+        }
+
+        private void ExecuteSizePenAction(int size)
         {
             _paintTool.SetPenSize(size);
         }
