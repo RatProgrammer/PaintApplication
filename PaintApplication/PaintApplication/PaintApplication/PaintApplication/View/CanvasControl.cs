@@ -37,7 +37,7 @@ namespace PaintApplication.View
         }
 
         protected virtual void OnCanvasStartPaint(MouseEventArgs e)
-        {  
+        {
             StartPaint?.Invoke(e);
         }
 
@@ -53,5 +53,5 @@ namespace PaintApplication.View
 
 
 
-}
+    }
 }

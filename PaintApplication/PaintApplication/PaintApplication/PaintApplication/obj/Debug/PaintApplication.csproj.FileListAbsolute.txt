@@ -39,10 +39,15 @@ C:\Users\Michael\Desktop\PaintApplication (1)\PaintApplication\PaintApplication\
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\PaintApplication.exe.config
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.exe
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.pdb
-C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\Source\pencil2.bmp
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\PaintApplication.exe
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\PaintApplication.pdb
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.View.PaintForm.resources
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.Properties.Resources.resources
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csproj.GenerateResource.Cache
+C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\Source\bucket.bmp
+C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\Source\circle.bmp
+C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\Source\line.bmp
+C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\Source\pencil3.bmp
+C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\Source\rectangle.bmp
+C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\bin\Debug\Source\rubber.bmp
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csprojResolveAssemblyReference.cache
