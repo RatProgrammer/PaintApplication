@@ -13,6 +13,7 @@ namespace PaintApplication.View
         public event Action<Point> StopPaintAction;
         public event Action <PaintToolType>ToolAction;
         public event Action<Point> MovePaintAction;
+        public event Action<Color> ColorAction;
 
         public PaintForm()
         {
@@ -58,6 +59,16 @@ namespace PaintApplication.View
             Button button = sender as Button;
             paintToolType = EnumUtil.ParseEnum<PaintToolType>(button?.Text);
             ToolAction?.Invoke(paintToolType);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        { 
+            if (colorDialog1.ShowDialog()== DialogResult.OK)
+            {
+                Color color = colorDialog1.Color;
+                pbColor.BackColor = color;
+                ColorAction?.Invoke(color);
+            }
         }
     }
 }

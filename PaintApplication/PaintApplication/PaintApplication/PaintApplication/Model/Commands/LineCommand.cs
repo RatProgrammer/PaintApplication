@@ -6,12 +6,12 @@ namespace PaintApplication.Model.Commands
     {
         private Point _startPoint;
 
-        public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, ref PaintTool paintTool, Point point)
         {
             _startPoint = point;
         }
 
-        public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, ref PaintTool paintTool, Point point)
         {
             using (Graphics graphics = Graphics.FromImage(current))
             {
@@ -19,7 +19,7 @@ namespace PaintApplication.Model.Commands
             }
         }
 
-        public void ExecuteMove(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteMove(ref Bitmap temporary, ref Bitmap current, ref PaintTool paintTool, Point point)
         {
             using (Graphics graphics = Graphics.FromImage(temporary))
             {
