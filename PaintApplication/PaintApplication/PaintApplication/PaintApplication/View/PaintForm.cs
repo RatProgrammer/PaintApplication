@@ -14,6 +14,7 @@ namespace PaintApplication.View
         public event Action <PaintToolType>ToolAction;
         public event Action<Point> MovePaintAction;
         public event Action<Color> ColorAction;
+        public event Action<int> SizeAction;
 
         public PaintForm()
         {
@@ -61,14 +62,18 @@ namespace PaintApplication.View
             ToolAction?.Invoke(paintToolType);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pbColor_Click(object sender, EventArgs e)
         { 
-            if (colorDialog1.ShowDialog()== DialogResult.OK)
+            if (colorDialog.ShowDialog()== DialogResult.OK)
             {
-                Color color = colorDialog1.Color;
-                pbColor.BackColor = color;
-                ColorAction?.Invoke(color);
+                pbColor.BackColor = colorDialog.Color;
+                ColorAction?.Invoke(colorDialog.Color);
             }
+        }
+
+        private void sizeTrackBar_ValueChanged(object sender, EventArgs e)
+        {
+            SizeAction?.Invoke(sizeTrackBar.Value);
         }
     }
 }

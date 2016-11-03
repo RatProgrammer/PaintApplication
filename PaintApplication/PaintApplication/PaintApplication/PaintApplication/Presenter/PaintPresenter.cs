@@ -23,12 +23,18 @@ namespace PaintApplication.Presenter
             _paintForm.ToolAction += ExecuteToolAction;
             _paintForm.MovePaintAction += ExecuteMovePaintAction;
             _paintForm.ColorAction += ExecuteColorAction;
+            _paintForm.SizeAction += ExecuteSizeAction;
             _paintTool = paintTool;
             _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
             _currentBitmap = new Bitmap(400,400);
             _temporaryBitmap = new Bitmap(400, 400);
             _color = Color.Black;
             InitializeBitmap();
+        }
+
+        private void ExecuteSizeAction(int size)
+        {
+            _paintTool.SetPenSize(size);
         }
 
         private void InitializeBitmap()

@@ -26,6 +26,7 @@ namespace PaintApplication.Model
         public void SetPenSize(int penSize)
         {
             _penSize = penSize;
+            Pen.Width = penSize;
         }
 
         public void SetBrush(Brush brush)
