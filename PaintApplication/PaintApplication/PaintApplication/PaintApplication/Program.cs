@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PaintApplication.Model;
 using PaintApplication.Presenter;
 using PaintApplication.View;
 
@@ -17,9 +18,8 @@ namespace PaintApplication
         static void Main()
         { 
             PaintForm paintForm = new PaintForm();
-            Canvas canvas = new Canvas(400, 400);
             PaintTool paintTool = new PaintTool();
-            PaintPresenter paintPresenter = new PaintPresenter(paintForm, canvas, paintTool);
+            PaintPresenter paintPresenter = new PaintPresenter(paintForm, paintTool);
             paintPresenter.RunApp();
 
         }

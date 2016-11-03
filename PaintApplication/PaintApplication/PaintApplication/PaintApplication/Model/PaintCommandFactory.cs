@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PaintApplication.Model.Commands;
+﻿using PaintApplication.Model.Commands;
 
 namespace PaintApplication.Model
 {
@@ -15,18 +10,16 @@ namespace PaintApplication.Model
             {
                 case PaintToolType.Pencil:
                     return new PencilCommand();
-                    break;
                 case PaintToolType.Rubber:
                     return new RubberCommand();
-                    break;
                 case PaintToolType.Bucket:
-                    return new NullObjectCommand();
-                    break;
+                    return new BucketCommand();
                 case PaintToolType.Circle:
-                    return new NullObjectCommand();
-                    break;
+                    return new CircleCommand();
                 case PaintToolType.Line:
                     return new LineCommand();
+                case PaintToolType.Rectangle:
+                        return new RectagleCommand();
                 default:
                     return new NullObjectCommand();
             }

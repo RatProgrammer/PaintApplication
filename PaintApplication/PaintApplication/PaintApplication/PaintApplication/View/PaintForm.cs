@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 using PaintApplication.Model;
 using PaintApplication.Model.Utility;
@@ -18,6 +19,9 @@ namespace PaintApplication.View
             InitializeComponent();
             InitCanvas();
         }
+
+
+
 
         private void InitCanvas()
         {
@@ -44,6 +48,7 @@ namespace PaintApplication.View
         public void UpdateCanvas(Image image)
         {
             canvasControl.Image = image;
+            canvasControl.Invalidate();
             canvasControl.Refresh();
         }
 
