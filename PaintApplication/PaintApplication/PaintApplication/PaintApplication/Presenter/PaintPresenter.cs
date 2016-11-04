@@ -1,8 +1,8 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 using PaintApplication.Model;
 using PaintApplication.Model.Commands;
+using PaintApplication.Model.RotateItems;
 using PaintApplication.View;
 
 namespace PaintApplication.Presenter
@@ -12,9 +12,11 @@ namespace PaintApplication.Presenter
         private readonly PaintForm _paintForm;
         private Bitmap _currentBitmap;
         private Bitmap _temporaryBitmap;
-        private  PaintTool _paintTool;
+        private readonly PaintTool _paintTool;
         private  IPaintCommand _paintCommand;
-        private Color _color;
+        private readonly SaveControler _saveControler;
+        private readonly LoadControler _loadControler;
+        private readonly RotateTypeFactory _rotateTypeFactory;
 
         public PaintPresenter(PaintForm paintForm, PaintTool paintTool)
         {
@@ -28,27 +30,27 @@ namespace PaintApplication.Presenter
             _paintForm.SizeChangeAction += ExecuteSizeChangeAction;
             _paintForm.SaveAction += ExecuteSaveAction;
             _paintForm.LoadAction += ExecuteLoadAction;
+            _paintForm.RotateAction += ExecuteRotateAction;
             _paintTool = paintTool;
+            _saveControler = new SaveControler();
+            _loadControler = new LoadControler();
+            _rotateTypeFactory = new RotateTypeFactory();
             _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
             _currentBitmap = new Bitmap(400,400);
             _temporaryBitmap = new Bitmap(400, 400);
-            _color = Color.Black;
             InitializeBitmap();
         }
 
+        private void ExecuteRotateAction(RotateTypes obj)
+        {
+            _currentBitmap = _rotateTypeFactory.GetRotateType(obj, _currentBitmap);
+            _paintForm.UpdateCanvas(_currentBitmap);
+        }
+
+
         private void ExecuteLoadAction(CanvasControl canvasControl)
         {
-           LoadControler loadControler = new LoadControler();
-
-            //_temporaryBitmap = loadControler.LoadBitmapFromFile(_currentBitmap);
-            //canvasControl.Size= new Size(_temporaryBitmap.Width, _temporaryBitmap.Height);
-            //_currentBitmap = new Bitmap(_temporaryBitmap, _temporaryBitmap.Width, _temporaryBitmap.Height);
-            //Graphics graphics = Graphics.FromImage(_currentBitmap);
-            //canvasControl.Image = _temporaryBitmap;
-            //graphics.DrawImage(_currentBitmap, _currentBitmap.Width, _currentBitmap.Height);
-            //_paintForm.UpdateCanvas(_currentBitmap);
-
-            Bitmap bitmap = loadControler.LoadBitmapFromFile(_currentBitmap);
+            Bitmap bitmap = _loadControler.LoadBitmapFromFile(_currentBitmap);
             canvasControl.Size = new Size(bitmap.Width, bitmap.Height);
             canvasControl.Image = bitmap;
             _currentBitmap = new Bitmap(canvasControl.Image);
@@ -56,8 +58,7 @@ namespace PaintApplication.Presenter
 
         private void ExecuteSaveAction()
         {
-            SaveControler saveControler=new SaveControler();
-            saveControler.SavePictureAsBitmap(_currentBitmap);
+            _saveControler.SavePictureAsBitmap(_currentBitmap);
         }
 
         private void ExecuteSizeChangeAction(int width, int height)

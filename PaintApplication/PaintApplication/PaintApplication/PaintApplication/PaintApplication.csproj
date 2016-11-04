@@ -57,6 +57,9 @@
     <Compile Include="Model\PaintCommandFactory.cs" />
     <Compile Include="Model\PaintToolType.cs" />
     <Compile Include="Model\Commands\IPaintCommand.cs" />
+    <Compile Include="Model\RotateItems\RotateControler.cs" />
+    <Compile Include="Model\RotateItems\RotateType.cs" />
+    <Compile Include="Model\RotateItems\RotateTypeFactory.cs" />
     <Compile Include="Model\SaveControler.cs" />
     <Compile Include="Model\Utility\EnumUtil.cs" />
     <Compile Include="Presenter\PaintPresenter.cs" />
@@ -119,6 +122,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
