@@ -1,6 +1,4 @@
-﻿using PaintApplication.Model.Commands;
-
-namespace PaintApplication.Model
+﻿namespace PaintApplication.Model.Commands
 {
     class PaintCommandFactory
     {

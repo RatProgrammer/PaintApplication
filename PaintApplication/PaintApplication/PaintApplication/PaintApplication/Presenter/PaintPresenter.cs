@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using PaintApplication.Model;
 using PaintApplication.Model.Commands;
+using PaintApplication.Model.FlipItems;
 using PaintApplication.Model.RotateItems;
 using PaintApplication.View;
 
@@ -17,6 +18,7 @@ namespace PaintApplication.Presenter
         private readonly SaveControler _saveControler;
         private readonly LoadControler _loadControler;
         private readonly RotateTypeFactory _rotateTypeFactory;
+        private readonly FlipTypeFactory _flipTypeFactory;
 
         public PaintPresenter(PaintForm paintForm, PaintTool paintTool)
         {
@@ -31,14 +33,22 @@ namespace PaintApplication.Presenter
             _paintForm.SaveAction += ExecuteSaveAction;
             _paintForm.LoadAction += ExecuteLoadAction;
             _paintForm.RotateAction += ExecuteRotateAction;
+            _paintForm.FlipAction += ExecuteFlipAction;
             _paintTool = paintTool;
             _saveControler = new SaveControler();
             _loadControler = new LoadControler();
             _rotateTypeFactory = new RotateTypeFactory();
+            _flipTypeFactory = new FlipTypeFactory();
             _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
             _currentBitmap = new Bitmap(400,400);
             _temporaryBitmap = new Bitmap(400, 400);
             InitializeBitmap();
+        }
+
+        private void ExecuteFlipAction(FlipType obj)
+        {
+            _currentBitmap = _flipTypeFactory.GetFlipType(obj, _currentBitmap);
+            _paintForm.UpdateCanvas(_currentBitmap);
         }
 
         private void ExecuteRotateAction(RotateTypes obj)

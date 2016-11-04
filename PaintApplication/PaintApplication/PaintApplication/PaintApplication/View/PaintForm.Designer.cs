@@ -47,10 +47,12 @@ namespace PaintApplication.View
             this.loadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Right90 = new System.Windows.Forms.ToolStripMenuItem();
-            this.inversMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Left90 = new System.Windows.Forms.ToolStripMenuItem();
             this.right90MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Right180 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Vertical = new System.Windows.Forms.ToolStripMenuItem();
+            this.Horizontal = new System.Windows.Forms.ToolStripMenuItem();
+            this.VerticalMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canvasControl = new PaintApplication.View.CanvasControl();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).BeginInit();
@@ -165,7 +167,7 @@ namespace PaintApplication.View
             this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuItem,
             this.Right90,
-            this.inversMenuItem});
+            this.Vertical});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(915, 24);
@@ -205,32 +207,49 @@ namespace PaintApplication.View
             this.Right90.Size = new System.Drawing.Size(53, 20);
             this.Right90.Text = "Rotate";
             // 
-            // inversMenuItem
-            // 
-            this.inversMenuItem.Name = "inversMenuItem";
-            this.inversMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.inversMenuItem.Text = "Invers";
-            // 
             // Left90
             // 
             this.Left90.Name = "Left90";
-            this.Left90.Size = new System.Drawing.Size(152, 22);
+            this.Left90.Size = new System.Drawing.Size(122, 22);
             this.Left90.Text = "Left 90°";
             this.Left90.Click += new System.EventHandler(this.btnRotate_Click);
             // 
             // right90MenuItem
             // 
             this.right90MenuItem.Name = "right90MenuItem";
-            this.right90MenuItem.Size = new System.Drawing.Size(152, 22);
+            this.right90MenuItem.Size = new System.Drawing.Size(122, 22);
             this.right90MenuItem.Text = "Right 90°";
             this.right90MenuItem.Click += new System.EventHandler(this.btnRotate_Click);
             // 
             // Right180
             // 
             this.Right180.Name = "Right180";
-            this.Right180.Size = new System.Drawing.Size(152, 22);
+            this.Right180.Size = new System.Drawing.Size(122, 22);
             this.Right180.Text = "180°";
             this.Right180.Click += new System.EventHandler(this.btnRotate_Click);
+            // 
+            // Vertical
+            // 
+            this.Vertical.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Horizontal,
+            this.VerticalMenuItem});
+            this.Vertical.Name = "Vertical";
+            this.Vertical.Size = new System.Drawing.Size(38, 20);
+            this.Vertical.Text = "Flip";
+            // 
+            // Horizontal
+            // 
+            this.Horizontal.Name = "Horizontal";
+            this.Horizontal.Size = new System.Drawing.Size(152, 22);
+            this.Horizontal.Text = "Horizontal";
+            this.Horizontal.Click += new System.EventHandler(this.btnFlip_Click);
+            // 
+            // VerticalMenuItem
+            // 
+            this.VerticalMenuItem.Name = "VerticalMenuItem";
+            this.VerticalMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.VerticalMenuItem.Text = "Vertical";
+            this.VerticalMenuItem.Click += new System.EventHandler(this.btnFlip_Click);
             // 
             // canvasControl
             // 
@@ -288,10 +307,12 @@ namespace PaintApplication.View
         private ToolStripMenuItem loadMenuItem;
         private ToolStripMenuItem saveMenuItem;
         private ToolStripMenuItem Right90;
-        private ToolStripMenuItem inversMenuItem;
+        private ToolStripMenuItem Vertical;
         private ToolStripMenuItem Left90;
         private ToolStripMenuItem right90MenuItem;
         private ToolStripMenuItem Right180;
+        private ToolStripMenuItem Horizontal;
+        private ToolStripMenuItem VerticalMenuItem;
     }
 }
 

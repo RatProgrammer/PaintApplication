@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using PaintApplication.Model;
+using PaintApplication.Model.FlipItems;
 using PaintApplication.Model.RotateItems;
 using PaintApplication.Model.Utility;
 
@@ -19,6 +20,7 @@ namespace PaintApplication.View
         public event Action SaveAction;
         public event Action<CanvasControl> LoadAction;
         public event Action<RotateTypes> RotateAction;
+        public event Action<FlipType> FlipAction;
 
         public PaintForm()
         {
@@ -100,6 +102,13 @@ namespace PaintApplication.View
             ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
             rotateTypes = EnumUtil.ParseEnum<RotateTypes>(toolStripMenuItem?.Name);
             RotateAction?.Invoke(rotateTypes);
+        }
+        private void btnFlip_Click(object sender, EventArgs e)
+        {
+            FlipType flipType = FlipType.None;
+            ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
+            flipType = EnumUtil.ParseEnum<FlipType>(toolStripMenuItem?.Name);
+            FlipAction?.Invoke(flipType);
         }
     }
 }
