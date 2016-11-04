@@ -42,7 +42,6 @@ namespace PaintApplication.Presenter
                 graphics.FillRectangle(Brushes.White, 0, 0, width, height);
                 graphics.DrawImage(_currentBitmap, 0, 0, _currentBitmap.Width, _currentBitmap.Height);
                 _currentBitmap = new Bitmap(_temporaryBitmap);
-                _temporaryBitmap.Dispose();
             }
         }
 

@@ -12,7 +12,7 @@ namespace PaintApplication.Model.Commands
             using (_graphics = Graphics.FromImage(current))
             {
                 _startPoint = point;
-                Pen newPen = new Pen(Color.White, 10);
+                Pen newPen = new Pen(Color.White, paintTool.Pen.Width);
                 _graphics.DrawLine(newPen, _startPoint, point);
             }
         }
@@ -26,7 +26,7 @@ namespace PaintApplication.Model.Commands
         {
             using (_graphics = Graphics.FromImage(current))
             {
-                Pen newPen = new Pen(Color.White, 10);
+                Pen newPen = new Pen(Color.White, paintTool.Pen.Width);
                 _graphics.DrawLine(newPen, _startPoint, point);
             }
             _startPoint = point;
