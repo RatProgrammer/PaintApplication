@@ -15,6 +15,8 @@ namespace PaintApplication.View
         public event Action<Color> ColorAction;
         public event Action<int> SizePenAction;
         public event Action<int, int> SizeChangeAction;
+        public event Action SaveAction;
+        public event Action<CanvasControl> LoadAction;
 
         public PaintForm()
         {
@@ -79,6 +81,16 @@ namespace PaintApplication.View
         private void canvasControl_SizeChanged(object sender, EventArgs e)
         {
             SizeChangeAction?.Invoke(canvasControl.Width, canvasControl.Height);
+        }
+        
+        private void loadMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadAction?.Invoke(canvasControl);
+        }
+
+        private void saveMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveAction?.Invoke();
         }
     }
 }

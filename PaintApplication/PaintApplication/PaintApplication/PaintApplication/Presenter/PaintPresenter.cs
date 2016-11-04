@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using PaintApplication.Model;
 using PaintApplication.Model.Commands;
@@ -25,12 +26,38 @@ namespace PaintApplication.Presenter
             _paintForm.ColorAction += ExecuteColorAction;
             _paintForm.SizePenAction += ExecuteSizePenAction;
             _paintForm.SizeChangeAction += ExecuteSizeChangeAction;
+            _paintForm.SaveAction += ExecuteSaveAction;
+            _paintForm.LoadAction += ExecuteLoadAction;
             _paintTool = paintTool;
             _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
             _currentBitmap = new Bitmap(400,400);
             _temporaryBitmap = new Bitmap(400, 400);
             _color = Color.Black;
             InitializeBitmap();
+        }
+
+        private void ExecuteLoadAction(CanvasControl canvasControl)
+        {
+           LoadControler loadControler = new LoadControler();
+
+            //_temporaryBitmap = loadControler.LoadBitmapFromFile(_currentBitmap);
+            //canvasControl.Size= new Size(_temporaryBitmap.Width, _temporaryBitmap.Height);
+            //_currentBitmap = new Bitmap(_temporaryBitmap, _temporaryBitmap.Width, _temporaryBitmap.Height);
+            //Graphics graphics = Graphics.FromImage(_currentBitmap);
+            //canvasControl.Image = _temporaryBitmap;
+            //graphics.DrawImage(_currentBitmap, _currentBitmap.Width, _currentBitmap.Height);
+            //_paintForm.UpdateCanvas(_currentBitmap);
+
+            Bitmap bitmap = loadControler.LoadBitmapFromFile(_currentBitmap);
+            canvasControl.Size = new Size(bitmap.Width, bitmap.Height);
+            canvasControl.Image = bitmap;
+            _currentBitmap = new Bitmap(canvasControl.Image);
+        }
+
+        private void ExecuteSaveAction()
+        {
+            SaveControler saveControler=new SaveControler();
+            saveControler.SavePictureAsBitmap(_currentBitmap);
         }
 
         private void ExecuteSizeChangeAction(int width, int height)
