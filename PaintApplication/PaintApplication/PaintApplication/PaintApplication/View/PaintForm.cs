@@ -27,6 +27,7 @@ namespace PaintApplication.View
         {
             InitializeComponent();
             TCResize tcResize = new TCResize(canvasControl);
+            tcResize.SizeIsChanged += canvasControl_SizeChanged;
             InitCanvas();
         }
 
@@ -83,7 +84,7 @@ namespace PaintApplication.View
             label1.Text = sizeTrackBar.Value.ToString();
         }
 
-        private void canvasControl_SizeChanged(object sender, EventArgs e)
+        private void canvasControl_SizeChanged()
         {
             SizeChangeAction?.Invoke(canvasControl.Width, canvasControl.Height);
         }

@@ -5,8 +5,7 @@ namespace PaintApplication.View
 {
     public class TCResize
     {
-        public Action SizeIsChanging;
-        public Action SizeIsStarChanging;
+        public Action SizeIsChanged;
         Control controltobeResized;
         static readonly int decoration = 3;
         public static int Decoration
@@ -49,6 +48,7 @@ namespace PaintApplication.View
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.pictureBox1.MouseUp += new MouseEventHandler(this.pictureBox_MouseUp);
             // 
             // pictureBox2
             // 
@@ -64,6 +64,7 @@ namespace PaintApplication.View
             this.pictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseMove);
             this.pictureBox2.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             this.pictureBox2.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.pictureBox2.MouseUp += new MouseEventHandler(this.pictureBox_MouseUp);
             // 
             // pictureBox3
             // 
@@ -79,6 +80,7 @@ namespace PaintApplication.View
             this.pictureBox3.MouseDown += new System.Windows.Forms.MouseEventHandler(pictureBox3_MouseDown);
             this.pictureBox3.MouseLeave += new System.EventHandler(this.pictureBox_MouseLeave);
             this.pictureBox3.MouseEnter += new System.EventHandler(this.pictureBox_MouseEnter);
+            this.pictureBox3.MouseUp += new MouseEventHandler(this.pictureBox_MouseUp);
             // 
             // label1
             // 
@@ -160,6 +162,11 @@ namespace PaintApplication.View
             }
             
             ShowTCTip();
+        }
+
+        private void pictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            SizeIsChanged?.Invoke();
         }
 
         private void pictureBox_MouseEnter(object sender, EventArgs e)

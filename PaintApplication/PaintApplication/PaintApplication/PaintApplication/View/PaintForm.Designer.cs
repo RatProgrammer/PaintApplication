@@ -260,7 +260,6 @@ namespace PaintApplication.View
             this.canvasControl.Size = new System.Drawing.Size(400, 400);
             this.canvasControl.TabIndex = 3;
             this.canvasControl.TabStop = false;
-            this.canvasControl.SizeChanged += new System.EventHandler(this.canvasControl_SizeChanged);
             // 
             // btnUndo
             // 
