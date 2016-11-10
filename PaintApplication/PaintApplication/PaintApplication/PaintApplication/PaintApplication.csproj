@@ -53,11 +53,15 @@
     <Compile Include="Model\Commands\RectagleCommand.cs" />
     <Compile Include="Model\Commands\RubberCommand.cs" />
     <Compile Include="Model\Commands\NullObjectCommand.cs" />
+    <Compile Include="Model\CopyBitmapContoler.cs" />
     <Compile Include="Model\FlipItems\FlipControler.cs" />
     <Compile Include="Model\FlipItems\FlipType.cs" />
     <Compile Include="Model\FlipItems\FlipTypeFactory.cs" />
     <Compile Include="Model\LoadControler.cs" />
     <Compile Include="Model\Commands\PaintCommandFactory.cs" />
+    <Compile Include="Model\MementoItems\Caretaker.cs" />
+    <Compile Include="Model\MementoItems\Memento.cs" />
+    <Compile Include="Model\MementoItems\Originator.cs" />
     <Compile Include="Model\PaintToolType.cs" />
     <Compile Include="Model\Commands\IPaintCommand.cs" />
     <Compile Include="Model\RotateItems\RotateControler.cs" />

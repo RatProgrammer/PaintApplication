@@ -21,6 +21,7 @@ namespace PaintApplication.View
         public event Action<CanvasControl> LoadAction;
         public event Action<RotateTypes> RotateAction;
         public event Action<FlipType> FlipAction;
+        public event Action UndoAction;
 
         public PaintForm()
         {
@@ -109,6 +110,11 @@ namespace PaintApplication.View
             ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
             flipType = EnumUtil.ParseEnum<FlipType>(toolStripMenuItem?.Name);
             FlipAction?.Invoke(flipType);
+        }
+
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            UndoAction?.Invoke();
         }
     }
 }

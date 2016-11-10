@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-using PaintApplication.Model;
 
 namespace PaintApplication.View
 {
@@ -50,8 +48,5 @@ namespace PaintApplication.View
         {
             MovePaint?.Invoke(e);
         }
-
-
-
     }
 }

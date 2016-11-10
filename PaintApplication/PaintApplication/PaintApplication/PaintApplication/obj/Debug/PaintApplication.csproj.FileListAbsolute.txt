@@ -50,4 +50,3 @@ C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csproj.GenerateResource.Cache
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.exe
 C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.pdb
-C:\Users\Aleksanra\Documents\PaintApplication\PaintApplication\PaintApplication\PaintApplication\PaintApplication\obj\Debug\PaintApplication.csprojResolveAssemblyReference.cache

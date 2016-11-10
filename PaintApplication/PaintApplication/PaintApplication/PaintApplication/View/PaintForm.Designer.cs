@@ -54,6 +54,7 @@ namespace PaintApplication.View
             this.Horizontal = new System.Windows.Forms.ToolStripMenuItem();
             this.VerticalMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canvasControl = new PaintApplication.View.CanvasControl();
+            this.btnUndo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).BeginInit();
             this.menu.SuspendLayout();
@@ -240,14 +241,14 @@ namespace PaintApplication.View
             // Horizontal
             // 
             this.Horizontal.Name = "Horizontal";
-            this.Horizontal.Size = new System.Drawing.Size(152, 22);
+            this.Horizontal.Size = new System.Drawing.Size(129, 22);
             this.Horizontal.Text = "Horizontal";
             this.Horizontal.Click += new System.EventHandler(this.btnFlip_Click);
             // 
             // VerticalMenuItem
             // 
             this.VerticalMenuItem.Name = "VerticalMenuItem";
-            this.VerticalMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.VerticalMenuItem.Size = new System.Drawing.Size(129, 22);
             this.VerticalMenuItem.Text = "Vertical";
             this.VerticalMenuItem.Click += new System.EventHandler(this.btnFlip_Click);
             // 
@@ -261,12 +262,23 @@ namespace PaintApplication.View
             this.canvasControl.TabStop = false;
             this.canvasControl.SizeChanged += new System.EventHandler(this.canvasControl_SizeChanged);
             // 
+            // btnUndo
+            // 
+            this.btnUndo.Location = new System.Drawing.Point(659, 37);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(75, 23);
+            this.btnUndo.TabIndex = 13;
+            this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
             // PaintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(915, 561);
+            this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sizeTrackBar);
             this.Controls.Add(this.pbColor);
@@ -313,6 +325,7 @@ namespace PaintApplication.View
         private ToolStripMenuItem Right180;
         private ToolStripMenuItem Horizontal;
         private ToolStripMenuItem VerticalMenuItem;
+        private Button btnUndo;
     }
 }
 
