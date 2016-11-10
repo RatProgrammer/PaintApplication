@@ -10,7 +10,7 @@ namespace PaintApplication.Model.MementoItems
 
         public Originator(Bitmap currentBitmap, int width, int height)
         {
-            _currentBitmap = currentBitmap;
+            _currentBitmap = (Bitmap)currentBitmap.Clone();
             _width = width;
             _height = height;
         }

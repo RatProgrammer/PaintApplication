@@ -50,20 +50,14 @@ namespace PaintApplication.Presenter
             _caretaker = new Caretaker();
             //_memento = new Memento(_currentBitmap,_currentBitmap.Width, _currentBitmap.Height);
             _originator = new Originator(_currentBitmap, _currentBitmap.Width, _currentBitmap.Height);
+            _caretaker = new Caretaker();
             InitializeBitmap();
         }
 
         private void ExecuteUndoAction()
         {
-           CreateSnapshot();
             _caretaker.RestoreMemento(_originator);
-          // canvasControl.Size = new Size(_originator.GetWidth(), _originator.GetHeight());
-            _temporaryBitmap = _originator.GetBitmap();
-
-           //_currentBitmap = new Bitmap(_originator.GetBitmap());
-           // _paintForm.UpdateCanvas(_currentBitmap);
-           // canvasControl.Image = (Bitmap) _originator.GetBitmap().Clone();
-           _currentBitmap = CopyBitmap();
+            _currentBitmap = _originator.GetBitmap();
            _paintForm.UpdateCanvas(_currentBitmap);
         }
 
@@ -98,7 +92,6 @@ namespace PaintApplication.Presenter
 
         private void ExecuteSizeChangeAction(int width, int height)
         {
-           CreateSnapshot();
             using (_temporaryBitmap)
             {
                 _temporaryBitmap = new Bitmap(width, height);
@@ -124,7 +117,7 @@ namespace PaintApplication.Presenter
 
         private void ExecuteStartPaintAction(Point point)
         {
-            //CreateSnapshot();
+            CreateSnapshot();
             _paintCommand.ExecuteStart(ref _temporaryBitmap, ref _currentBitmap, _paintTool, point);
             _paintForm.UpdateCanvas(_currentBitmap);
         }
@@ -158,17 +151,10 @@ namespace PaintApplication.Presenter
 
         public void CreateSnapshot()
         {
-            _temporaryBitmap = new Bitmap(_currentBitmap);
-            _originator = new Originator(_temporaryBitmap, _currentBitmap.Width, _currentBitmap.Height);
-            _caretaker = new Caretaker();
-            _caretaker.SaveMemento(_originator);
-        }
 
-        public Bitmap CopyBitmap()
-        {
-            CopyBitmapContoler copyBitmapContoler = new CopyBitmapContoler();
-            Bitmap bitmap=copyBitmapContoler.CopyPictureBitmap(_temporaryBitmap);
-            return bitmap;
+            _originator = new Originator(_currentBitmap, _currentBitmap.Width, _currentBitmap.Height);
+            
+            _caretaker.SaveMemento(_originator);
         }
 
         public void RunApp()

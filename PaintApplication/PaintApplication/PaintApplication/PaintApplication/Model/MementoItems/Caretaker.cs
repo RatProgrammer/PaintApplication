@@ -18,7 +18,7 @@ namespace PaintApplication.Model.MementoItems
 
         public void RestoreMemento(Originator originator)
         {
-            if (_mementoes.Count > 1)
+            if (_mementoes.Count > 0)
             {
                 Memento lastMemento = _mementoes.Pop();
                 originator.SetMemento(lastMemento);
