@@ -17,7 +17,9 @@
                 case PaintToolType.Line:
                     return new LineCommand();
                 case PaintToolType.Rectangle:
-                        return new RectagleCommand();
+                    return new RectagleCommand();
+                case PaintToolType.Brush:
+                    return new BrushCommand();
                 default:
                     return new NullObjectCommand();
             }

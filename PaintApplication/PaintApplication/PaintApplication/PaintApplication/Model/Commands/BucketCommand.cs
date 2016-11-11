@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PaintApplication.Model.Commands
 {
@@ -18,12 +14,10 @@ namespace PaintApplication.Model.Commands
 
         public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
-
         }
 
         public void ExecuteMove(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
-
         }
 
         private void  FloodFill(Bitmap bitmap, int x, int y, Color color)

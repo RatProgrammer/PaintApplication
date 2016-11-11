@@ -21,8 +21,7 @@ namespace PaintApplication.Presenter
         private readonly RotateTypeFactory _rotateTypeFactory;
         private readonly FlipTypeFactory _flipTypeFactory;
         private Originator _originator;
-        //private Memento _memento;
-        private Caretaker _caretaker;
+        private readonly Caretaker _caretaker;
 
         public PaintPresenter(PaintForm paintForm, PaintTool paintTool)
         {
@@ -39,6 +38,7 @@ namespace PaintApplication.Presenter
             _paintForm.RotateAction += ExecuteRotateAction;
             _paintForm.FlipAction += ExecuteFlipAction;
             _paintForm.UndoAction += ExecuteUndoAction;
+            _paintForm.BrushAction += ExecuteBrushAction;
             _paintTool = paintTool;
             _saveControler = new SaveControler();
             _loadControler = new LoadControler();
@@ -48,48 +48,35 @@ namespace PaintApplication.Presenter
             _currentBitmap = new Bitmap(400,400);
             _temporaryBitmap = new Bitmap(400, 400);
             _caretaker = new Caretaker();
-            //_memento = new Memento(_currentBitmap,_currentBitmap.Width, _currentBitmap.Height);
             _originator = new Originator(_currentBitmap, _currentBitmap.Width, _currentBitmap.Height);
-            _caretaker = new Caretaker();
             InitializeBitmap();
         }
 
-        private void ExecuteUndoAction()
+        private void ExecuteBrushAction(BrushType brushType)
         {
-            _caretaker.RestoreMemento(_originator);
-            _currentBitmap = _originator.GetBitmap();
-           _paintForm.UpdateCanvas(_currentBitmap);
+            _paintTool.SetBrush(brushType);
+            ExecuteToolAction(PaintToolType.Brush);
         }
 
-        private void ExecuteFlipAction(FlipType obj)
+        private void InitializeBitmap()
         {
-            CreateSnapshot();
-            _currentBitmap = _flipTypeFactory.GetFlipType(obj, _currentBitmap);
-            _paintForm.UpdateCanvas(_currentBitmap);
+            using (Graphics graphics = Graphics.FromImage(_currentBitmap))
+            {
+                graphics.FillRectangle(Brushes.White, 0, 0, _currentBitmap.Width, _currentBitmap.Height);
+            }
         }
-
-        private void ExecuteRotateAction(RotateTypes obj)
+        private void ExecuteToolAction(PaintToolType paintToolType)
         {
-            CreateSnapshot();
-            _currentBitmap = _rotateTypeFactory.GetRotateType(obj, _currentBitmap);
-            _paintForm.UpdateCanvas(_currentBitmap);
+            _paintCommand = PaintCommandFactory.GetPaintCommand(paintToolType);
         }
-
-
-        private void ExecuteLoadAction(CanvasControl canvasControl)
+        private void ExecuteColorAction(Color color)
         {
-            CreateSnapshot();
-            Bitmap bitmap = _loadControler.LoadBitmapFromFile(_currentBitmap);
-            canvasControl.Size = new Size(bitmap.Width, bitmap.Height);
-            canvasControl.Image = bitmap;
-            _currentBitmap = new Bitmap(canvasControl.Image);
+            _paintTool.SetColor(color);
         }
-
-        private void ExecuteSaveAction()
+        private void ExecuteSizePenAction(int size)
         {
-            _saveControler.SavePictureAsBitmap(_currentBitmap);
+            _paintTool.SetPenSize(size);
         }
-
         private void ExecuteSizeChangeAction(int width, int height)
         {
             using (_temporaryBitmap)
@@ -101,62 +88,60 @@ namespace PaintApplication.Presenter
                 _currentBitmap = new Bitmap(_temporaryBitmap);
             }
         }
-
-        private void ExecuteSizePenAction(int size)
-        {
-            _paintTool.SetPenSize(size);
-        }
-
-        private void InitializeBitmap()
-        {
-            using (Graphics graphics = Graphics.FromImage(_currentBitmap))
-            {
-                graphics.FillRectangle(Brushes.White, 0, 0, _currentBitmap.Width, _currentBitmap.Height);
-            }
-        }
-
         private void ExecuteStartPaintAction(Point point)
         {
             CreateSnapshot();
             _paintCommand.ExecuteStart(ref _temporaryBitmap, ref _currentBitmap, _paintTool, point);
             _paintForm.UpdateCanvas(_currentBitmap);
         }
-
         private void ExecuteMovePaintAction(Point point)
         {
-            //CreateSnapshot();
             using (_temporaryBitmap = new Bitmap(_currentBitmap))
             {
                 _paintCommand.ExecuteMove(ref _temporaryBitmap, ref _currentBitmap, _paintTool, point);
                 _paintForm.UpdateCanvas(_temporaryBitmap);
             }
         }
-
         private void ExecuteStopPaintAction(Point point)
         {
-            //CreateSnapshot();
             _paintCommand.ExecuteStop(ref _temporaryBitmap, ref _currentBitmap, _paintTool, point);
             _paintForm.UpdateCanvas(_currentBitmap);
         }
-
-        private void ExecuteToolAction(PaintToolType paintToolType)
+        private void ExecuteRotateAction(RotateTypes obj)
         {
-            _paintCommand=PaintCommandFactory.GetPaintCommand(paintToolType);
+            CreateSnapshot();
+            _currentBitmap = _rotateTypeFactory.GetRotateType(obj, _currentBitmap);
+            _paintForm.UpdateCanvas(_currentBitmap);
         }
-
-        private void ExecuteColorAction(Color color)
+        private void ExecuteFlipAction(FlipType obj)
         {
-            _paintTool.SetColor(color);
+            CreateSnapshot();
+            _currentBitmap = _flipTypeFactory.GetFlipType(obj, _currentBitmap);
+            _paintForm.UpdateCanvas(_currentBitmap);
         }
-
+        private void ExecuteUndoAction()
+        {
+            _caretaker.RestoreMemento(_originator);
+            _currentBitmap = _originator.GetBitmap();
+           _paintForm.UpdateCanvas(_currentBitmap);
+        }
+        private void ExecuteLoadAction(CanvasControl canvasControl)
+        {
+            CreateSnapshot();
+            Bitmap bitmap = _loadControler.LoadBitmapFromFile(_currentBitmap);
+            canvasControl.Size = new Size(bitmap.Width, bitmap.Height);
+            canvasControl.Image = bitmap;
+            _currentBitmap = new Bitmap(canvasControl.Image);
+        }
+        private void ExecuteSaveAction()
+        {
+            _saveControler.SavePictureAsBitmap(_currentBitmap);
+        }
         public void CreateSnapshot()
         {
-
             _originator = new Originator(_currentBitmap, _currentBitmap.Width, _currentBitmap.Height);
-            
             _caretaker.SaveMemento(_originator);
         }
-
         public void RunApp()
         {
             Application.EnableVisualStyles();

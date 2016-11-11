@@ -6,7 +6,7 @@ namespace PaintApplication.View
     public class TCResize
     {
         public Action SizeIsChanged;
-        Control controltobeResized;
+        readonly Control controltobeResized;
         static readonly int decoration = 3;
         public static int Decoration
         {
@@ -24,10 +24,10 @@ namespace PaintApplication.View
             theControl.Parent.Controls.Add(label1);
         }
 
-        private System.Windows.Forms.PictureBox pictureBox1 = new PictureBox();
-        private System.Windows.Forms.PictureBox pictureBox2 = new PictureBox();
-        private System.Windows.Forms.PictureBox pictureBox3 = new PictureBox();
-        private System.Windows.Forms.Label label1 = new Label();
+        private PictureBox pictureBox1 = new PictureBox();
+        private PictureBox pictureBox2 = new PictureBox();
+        private PictureBox pictureBox3 = new PictureBox();
+        private Label label1 = new Label();
         private bool _sizeChanged = false;
 
 

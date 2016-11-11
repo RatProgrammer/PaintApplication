@@ -6,7 +6,6 @@ namespace PaintApplication.Model.Commands
     {
         private Point _startPoint;
         private Graphics _graphics;
-
         public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
             using (_graphics = Graphics.FromImage(current))

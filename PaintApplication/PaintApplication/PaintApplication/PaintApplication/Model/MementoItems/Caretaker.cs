@@ -10,7 +10,6 @@ namespace PaintApplication.Model.MementoItems
         {
             _mementoes = new Stack<Memento>();
         }
-
         public void SaveMemento(Originator originator)
         {
             _mementoes.Push(originator.CreateMemento());

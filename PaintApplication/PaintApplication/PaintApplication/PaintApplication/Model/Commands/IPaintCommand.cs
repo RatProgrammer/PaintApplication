@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using PaintApplication.Presenter;
 
 namespace PaintApplication.Model.Commands
 {

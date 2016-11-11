@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using PaintApplication.Model;
+using PaintApplication.Model.Commands;
 using PaintApplication.Model.FlipItems;
 using PaintApplication.Model.RotateItems;
 using PaintApplication.Model.Utility;
@@ -22,6 +23,7 @@ namespace PaintApplication.View
         public event Action<RotateTypes> RotateAction;
         public event Action<FlipType> FlipAction;
         public event Action UndoAction;
+        public event Action<BrushType> BrushAction;
 
         public PaintForm()
         {
@@ -116,6 +118,14 @@ namespace PaintApplication.View
         private void btnUndo_Click(object sender, EventArgs e)
         {
             UndoAction?.Invoke();
+        }
+
+        private void btnBrush_Click(object sender, EventArgs e)
+        {
+            BrushType brushType = BrushType.None;
+            Button button = sender as Button;
+            brushType = EnumUtil.ParseEnum<BrushType>(button?.Text);
+            BrushAction?.Invoke(brushType);
         }
     }
 }

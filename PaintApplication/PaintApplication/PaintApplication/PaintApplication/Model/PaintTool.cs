@@ -1,4 +1,6 @@
 ﻿using System.Drawing;
+using System.Drawing.Drawing2D;
+using PaintApplication.Model.Commands;
 
 namespace PaintApplication.Model
 {
@@ -11,16 +13,21 @@ namespace PaintApplication.Model
 
         public Brush Brush { get; private set; }
 
+        private BrushType _brushType;
+        private BrushFactory _brushFactory;
+
         public PaintTool()
         {
             _penSize = 1;
             Color = Color.Black;
             Pen=new Pen(Color,_penSize);
+            _brushFactory = new BrushFactory(); 
         }
         public void SetColor(Color color)
         {
             Color = color;
             Pen.Color = color;
+            Brush = _brushFactory.CreateBrush(_brushType, color);
         }
 
         public void SetPenSize(int penSize)
@@ -29,9 +36,10 @@ namespace PaintApplication.Model
             Pen.Width = penSize;
         }
 
-        public void SetBrush(Brush brush)
+        public void SetBrush(BrushType brushType)
         {
-            Brush = brush;
+            Brush= _brushFactory.CreateBrush(brushType, Color);
+            _brushType = brushType;
         }
 
         public void SetPen(Pen pen)

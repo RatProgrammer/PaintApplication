@@ -31,15 +31,5 @@ namespace PaintApplication.Model.MementoItems
         {
             return new Bitmap(_currentBitmap);
         }
-
-        public int GetWidth()
-        {
-            return _width;
-        }
-
-        public int GetHeight()
-        {
-            return _height;
-        }
     }
 }

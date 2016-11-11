@@ -53,8 +53,9 @@ namespace PaintApplication.View
             this.Vertical = new System.Windows.Forms.ToolStripMenuItem();
             this.Horizontal = new System.Windows.Forms.ToolStripMenuItem();
             this.VerticalMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.canvasControl = new PaintApplication.View.CanvasControl();
             this.btnUndo = new System.Windows.Forms.Button();
+            this.btnBrush1 = new System.Windows.Forms.Button();
+            this.canvasControl = new PaintApplication.View.CanvasControl();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).BeginInit();
             this.menu.SuspendLayout();
@@ -252,15 +253,6 @@ namespace PaintApplication.View
             this.VerticalMenuItem.Text = "Vertical";
             this.VerticalMenuItem.Click += new System.EventHandler(this.btnFlip_Click);
             // 
-            // canvasControl
-            // 
-            this.canvasControl.BackColor = System.Drawing.Color.White;
-            this.canvasControl.Location = new System.Drawing.Point(24, 84);
-            this.canvasControl.Name = "canvasControl";
-            this.canvasControl.Size = new System.Drawing.Size(400, 400);
-            this.canvasControl.TabIndex = 3;
-            this.canvasControl.TabStop = false;
-            // 
             // btnUndo
             // 
             this.btnUndo.Location = new System.Drawing.Point(659, 37);
@@ -271,12 +263,32 @@ namespace PaintApplication.View
             this.btnUndo.UseVisualStyleBackColor = true;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
+            // btnBrush1
+            // 
+            this.btnBrush1.Location = new System.Drawing.Point(612, 128);
+            this.btnBrush1.Name = "btnBrush1";
+            this.btnBrush1.Size = new System.Drawing.Size(113, 23);
+            this.btnBrush1.TabIndex = 14;
+            this.btnBrush1.Text = "BackwardDiagonal";
+            this.btnBrush1.UseVisualStyleBackColor = true;
+            this.btnBrush1.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // canvasControl
+            // 
+            this.canvasControl.BackColor = System.Drawing.Color.White;
+            this.canvasControl.Location = new System.Drawing.Point(24, 84);
+            this.canvasControl.Name = "canvasControl";
+            this.canvasControl.Size = new System.Drawing.Size(400, 400);
+            this.canvasControl.TabIndex = 3;
+            this.canvasControl.TabStop = false;
+            // 
             // PaintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(915, 561);
+            this.Controls.Add(this.btnBrush1);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sizeTrackBar);
@@ -325,6 +337,7 @@ namespace PaintApplication.View
         private ToolStripMenuItem Horizontal;
         private ToolStripMenuItem VerticalMenuItem;
         private Button btnUndo;
+        private Button btnBrush1;
     }
 }
 

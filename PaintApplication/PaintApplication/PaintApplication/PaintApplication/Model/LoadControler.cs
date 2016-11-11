@@ -18,7 +18,6 @@ namespace PaintApplication.Model
         {
             if (_openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                
                 return new Bitmap(_openFileDialog.FileName);
             }
             return new Bitmap(bitmap);

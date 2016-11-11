@@ -1,17 +1,25 @@
 ﻿using System.Drawing;
+using System.Drawing.Drawing2D;
+using PaintApplication.Model.Commands;
 
-namespace PaintApplication.Model.Commands
+namespace PaintApplication.Model
 {
-    class PencilCommand : IPaintCommand
+    class BrushCommand:IPaintCommand
     {
+        private readonly BrushFactory brushFactory;
         private Point _previousPoint;
         private Graphics _graphics;
+        private Brush _brush;
+        public BrushCommand()
+        {
+        }
 
         public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
+            
             Point startPoint = point;
             current.SetPixel(startPoint.X, startPoint.Y, paintTool.Color);
-             _previousPoint = point;
+            _previousPoint = point;
         }
 
         public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
@@ -21,12 +29,12 @@ namespace PaintApplication.Model.Commands
 
         public void ExecuteMove(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
-            Point startPoint = point;
             using (_graphics = Graphics.FromImage(current))
             {
-                _graphics.DrawLine(paintTool.Pen, startPoint, _previousPoint);
+                Rectangle rectangle = new Rectangle(point.X, point.Y, 10, 10);
+                _graphics.FillEllipse(paintTool.Brush, rectangle);
+
             }
-            _previousPoint = point;
         }
     }
 }

@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\BrushFactory.cs" />
+    <Compile Include="Model\Commands\BrushCommand.cs" />
+    <Compile Include="Model\BrushType.cs" />
     <Compile Include="Model\Commands\BucketCommand.cs" />
     <Compile Include="Model\Commands\CircleCommand.cs" />
     <Compile Include="Model\Commands\LineCommand.cs" />
@@ -53,7 +56,6 @@
     <Compile Include="Model\Commands\RectagleCommand.cs" />
     <Compile Include="Model\Commands\RubberCommand.cs" />
     <Compile Include="Model\Commands\NullObjectCommand.cs" />
-    <Compile Include="Model\CopyBitmapContoler.cs" />
     <Compile Include="Model\FlipItems\FlipControler.cs" />
     <Compile Include="Model\FlipItems\FlipType.cs" />
     <Compile Include="Model\FlipItems\FlipTypeFactory.cs" />
