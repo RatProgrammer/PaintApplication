@@ -16,5 +16,4 @@ namespace PaintApplication.Model
         DarkHorizontal,
         LargeConfetti
     }
-
 }

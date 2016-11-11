@@ -1,6 +1,4 @@
 ﻿using System.Drawing;
-using System.Drawing.Drawing2D;
-using PaintApplication.Model.Commands;
 
 namespace PaintApplication.Model
 {
@@ -14,7 +12,7 @@ namespace PaintApplication.Model
         public Brush Brush { get; private set; }
 
         private BrushType _brushType;
-        private BrushFactory _brushFactory;
+        private readonly BrushFactory _brushFactory;
 
         public PaintTool()
         {

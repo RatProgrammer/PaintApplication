@@ -52,13 +52,7 @@ namespace PaintApplication.Presenter
             InitializeBitmap();
         }
 
-        private void ExecuteBrushAction(BrushType brushType)
-        {
-            _paintTool.SetBrush(brushType);
-            ExecuteToolAction(PaintToolType.Brush);
-        }
-
-        private void InitializeBitmap()
+        private void InitializeBitmap()// to Canvas
         {
             using (Graphics graphics = Graphics.FromImage(_currentBitmap))
             {
@@ -69,6 +63,11 @@ namespace PaintApplication.Presenter
         {
             _paintCommand = PaintCommandFactory.GetPaintCommand(paintToolType);
         }
+        private void ExecuteBrushAction(BrushType brushType)
+        {
+            _paintTool.SetBrush(brushType);
+            ExecuteToolAction(PaintToolType.Brush);
+        }
         private void ExecuteColorAction(Color color)
         {
             _paintTool.SetColor(color);
@@ -77,7 +76,7 @@ namespace PaintApplication.Presenter
         {
             _paintTool.SetPenSize(size);
         }
-        private void ExecuteSizeChangeAction(int width, int height)
+        private void ExecuteSizeChangeAction(int width, int height)//to Canvas
         {
             using (_temporaryBitmap)
             {
@@ -148,6 +147,5 @@ namespace PaintApplication.Presenter
             //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(_paintForm);
         }
-        
     }
 }

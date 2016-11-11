@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using PaintApplication.Model;
-using PaintApplication.Model.Commands;
 using PaintApplication.Model.FlipItems;
 using PaintApplication.Model.RotateItems;
 using PaintApplication.Model.Utility;
@@ -71,6 +70,14 @@ namespace PaintApplication.View
             sizeTrackBar.Enabled = true;
             ToolAction?.Invoke(paintToolType);
         }
+        private void btnBrush_Click(object sender, EventArgs e)
+        {
+            BrushType brushType = BrushType.CrossBrush;
+            Button button = sender as Button;
+            brushType = EnumUtil.ParseEnum<BrushType>(button?.Name);
+            sizeTrackBar.Enabled = false;
+            BrushAction?.Invoke(brushType);
+        }
 
         private void pbColor_Click(object sender, EventArgs e)
         { 
@@ -119,15 +126,6 @@ namespace PaintApplication.View
         private void btnUndo_Click(object sender, EventArgs e)
         {
             UndoAction?.Invoke();
-        }
-
-        private void btnBrush_Click(object sender, EventArgs e)
-        {
-            BrushType brushType = BrushType.CrossBrush;
-            Button button = sender as Button;
-            brushType = EnumUtil.ParseEnum<BrushType>(button?.Name);
-            sizeTrackBar.Enabled = false;
-            BrushAction?.Invoke(brushType);
         }
     }
 }

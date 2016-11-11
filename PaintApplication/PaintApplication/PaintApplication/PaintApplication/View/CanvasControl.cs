@@ -9,7 +9,6 @@ namespace PaintApplication.View
         public event Action<MouseEventArgs> StopPaint;
         public event Action<MouseEventArgs> MovePaint;
 
-
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);

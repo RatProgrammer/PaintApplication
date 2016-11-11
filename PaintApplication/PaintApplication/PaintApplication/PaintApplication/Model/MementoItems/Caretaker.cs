@@ -4,7 +4,7 @@ namespace PaintApplication.Model.MementoItems
 {
     class Caretaker
     {
-        private Stack<Memento> _mementoes;
+        private readonly Stack<Memento> _mementoes;
 
         public Caretaker()
         {

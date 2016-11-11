@@ -6,7 +6,6 @@ namespace PaintApplication.Model
 {
     internal class BrushFactory
     {
-
         public Brush CreateBrush(BrushType brushType, Color color)
         {
             switch (brushType)
