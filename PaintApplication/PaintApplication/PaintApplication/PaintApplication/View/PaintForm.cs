@@ -68,6 +68,7 @@ namespace PaintApplication.View
             PaintToolType paintToolType = PaintToolType.None;
             Button button = sender as Button;
             paintToolType = EnumUtil.ParseEnum<PaintToolType>(button?.Text);
+            sizeTrackBar.Enabled = true;
             ToolAction?.Invoke(paintToolType);
         }
 
@@ -122,9 +123,10 @@ namespace PaintApplication.View
 
         private void btnBrush_Click(object sender, EventArgs e)
         {
-            BrushType brushType = BrushType.None;
+            BrushType brushType = BrushType.CrossBrush;
             Button button = sender as Button;
-            brushType = EnumUtil.ParseEnum<BrushType>(button?.Text);
+            brushType = EnumUtil.ParseEnum<BrushType>(button?.Name);
+            sizeTrackBar.Enabled = false;
             BrushAction?.Invoke(brushType);
         }
     }

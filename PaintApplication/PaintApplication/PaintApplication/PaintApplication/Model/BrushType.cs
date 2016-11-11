@@ -3,8 +3,18 @@ namespace PaintApplication.Model
    public  enum BrushType
     {
         BackwardDiagonal,
-        Brush2,
-        None
+        DiagonalBrick,
+        CrossBrush,
+        None,
+        SmallConfetti,
+        ZigZag,
+        LargeCheckerBoard,
+        Wave,
+        Sphere,
+        SolidDiamond,
+        Shingle,
+        DarkHorizontal,
+        LargeConfetti
     }
 
 }

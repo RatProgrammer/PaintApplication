@@ -112,6 +112,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Source\brush1.bmp" />
+    <Content Include="Source\brush10.bmp" />
+    <Content Include="Source\brush11.bmp" />
+    <Content Include="Source\brush12.bmp" />
+    <Content Include="Source\brush2.bmp" />
+    <Content Include="Source\brush3.bmp" />
+    <Content Include="Source\brush4.bmp" />
+    <Content Include="Source\brush5.bmp" />
+    <Content Include="Source\brush6.bmp" />
+    <Content Include="Source\brush7.bmp" />
+    <Content Include="Source\brush8.bmp" />
+    <Content Include="Source\brush9.bmp" />
     <Content Include="Source\bucket.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

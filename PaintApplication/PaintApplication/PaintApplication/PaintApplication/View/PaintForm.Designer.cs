@@ -54,11 +54,24 @@ namespace PaintApplication.View
             this.Horizontal = new System.Windows.Forms.ToolStripMenuItem();
             this.VerticalMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUndo = new System.Windows.Forms.Button();
-            this.btnBrush1 = new System.Windows.Forms.Button();
+            this.backwardDiagonal = new System.Windows.Forms.Button();
+            this.crossBrush = new System.Windows.Forms.Button();
+            this.diagonalBrick = new System.Windows.Forms.Button();
+            this.gbBrushes = new System.Windows.Forms.GroupBox();
+            this.smallConfetti = new System.Windows.Forms.Button();
+            this.zigZag = new System.Windows.Forms.Button();
+            this.largeCheckerBoard = new System.Windows.Forms.Button();
+            this.wave = new System.Windows.Forms.Button();
+            this.sphere = new System.Windows.Forms.Button();
+            this.solidDiamond = new System.Windows.Forms.Button();
+            this.shingle = new System.Windows.Forms.Button();
+            this.darkHorizontal = new System.Windows.Forms.Button();
+            this.largeConfetti = new System.Windows.Forms.Button();
             this.canvasControl = new PaintApplication.View.CanvasControl();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).BeginInit();
             this.menu.SuspendLayout();
+            this.gbBrushes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -255,7 +268,7 @@ namespace PaintApplication.View
             // 
             // btnUndo
             // 
-            this.btnUndo.Location = new System.Drawing.Point(659, 37);
+            this.btnUndo.Location = new System.Drawing.Point(601, 38);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 13;
@@ -263,20 +276,151 @@ namespace PaintApplication.View
             this.btnUndo.UseVisualStyleBackColor = true;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
-            // btnBrush1
+            // backwardDiagonal
             // 
-            this.btnBrush1.Location = new System.Drawing.Point(612, 128);
-            this.btnBrush1.Name = "btnBrush1";
-            this.btnBrush1.Size = new System.Drawing.Size(113, 23);
-            this.btnBrush1.TabIndex = 14;
-            this.btnBrush1.Text = "BackwardDiagonal";
-            this.btnBrush1.UseVisualStyleBackColor = true;
-            this.btnBrush1.Click += new System.EventHandler(this.btnBrush_Click);
+            this.backwardDiagonal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backwardDiagonal.BackgroundImage")));
+            this.backwardDiagonal.Location = new System.Drawing.Point(19, 19);
+            this.backwardDiagonal.Name = "backwardDiagonal";
+            this.backwardDiagonal.Size = new System.Drawing.Size(23, 23);
+            this.backwardDiagonal.TabIndex = 14;
+            this.backwardDiagonal.UseVisualStyleBackColor = true;
+            this.backwardDiagonal.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // crossBrush
+            // 
+            this.crossBrush.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("crossBrush.BackgroundImage")));
+            this.crossBrush.Location = new System.Drawing.Point(48, 19);
+            this.crossBrush.Name = "crossBrush";
+            this.crossBrush.Size = new System.Drawing.Size(23, 23);
+            this.crossBrush.TabIndex = 15;
+            this.crossBrush.UseVisualStyleBackColor = true;
+            this.crossBrush.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // diagonalBrick
+            // 
+            this.diagonalBrick.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("diagonalBrick.BackgroundImage")));
+            this.diagonalBrick.Location = new System.Drawing.Point(80, 19);
+            this.diagonalBrick.Name = "diagonalBrick";
+            this.diagonalBrick.Size = new System.Drawing.Size(23, 23);
+            this.diagonalBrick.TabIndex = 16;
+            this.diagonalBrick.UseVisualStyleBackColor = true;
+            this.diagonalBrick.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // gbBrushes
+            // 
+            this.gbBrushes.Controls.Add(this.largeConfetti);
+            this.gbBrushes.Controls.Add(this.darkHorizontal);
+            this.gbBrushes.Controls.Add(this.shingle);
+            this.gbBrushes.Controls.Add(this.solidDiamond);
+            this.gbBrushes.Controls.Add(this.sphere);
+            this.gbBrushes.Controls.Add(this.wave);
+            this.gbBrushes.Controls.Add(this.largeCheckerBoard);
+            this.gbBrushes.Controls.Add(this.zigZag);
+            this.gbBrushes.Controls.Add(this.smallConfetti);
+            this.gbBrushes.Controls.Add(this.backwardDiagonal);
+            this.gbBrushes.Controls.Add(this.diagonalBrick);
+            this.gbBrushes.Controls.Add(this.crossBrush);
+            this.gbBrushes.Location = new System.Drawing.Point(0, 68);
+            this.gbBrushes.Name = "gbBrushes";
+            this.gbBrushes.Size = new System.Drawing.Size(372, 57);
+            this.gbBrushes.TabIndex = 17;
+            this.gbBrushes.TabStop = false;
+            this.gbBrushes.Text = "Brushes";
+            // 
+            // smallConfetti
+            // 
+            this.smallConfetti.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("smallConfetti.BackgroundImage")));
+            this.smallConfetti.Location = new System.Drawing.Point(109, 19);
+            this.smallConfetti.Name = "smallConfetti";
+            this.smallConfetti.Size = new System.Drawing.Size(23, 23);
+            this.smallConfetti.TabIndex = 17;
+            this.smallConfetti.UseVisualStyleBackColor = true;
+            this.smallConfetti.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // zigZag
+            // 
+            this.zigZag.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("zigZag.BackgroundImage")));
+            this.zigZag.Location = new System.Drawing.Point(138, 19);
+            this.zigZag.Name = "zigZag";
+            this.zigZag.Size = new System.Drawing.Size(23, 23);
+            this.zigZag.TabIndex = 18;
+            this.zigZag.UseVisualStyleBackColor = true;
+            this.zigZag.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // largeCheckerBoard
+            // 
+            this.largeCheckerBoard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("largeCheckerBoard.BackgroundImage")));
+            this.largeCheckerBoard.Location = new System.Drawing.Point(167, 19);
+            this.largeCheckerBoard.Name = "largeCheckerBoard";
+            this.largeCheckerBoard.Size = new System.Drawing.Size(23, 23);
+            this.largeCheckerBoard.TabIndex = 19;
+            this.largeCheckerBoard.UseVisualStyleBackColor = true;
+            this.largeCheckerBoard.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // wave
+            // 
+            this.wave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("wave.BackgroundImage")));
+            this.wave.Location = new System.Drawing.Point(196, 19);
+            this.wave.Name = "wave";
+            this.wave.Size = new System.Drawing.Size(23, 23);
+            this.wave.TabIndex = 20;
+            this.wave.UseVisualStyleBackColor = true;
+            this.wave.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // sphere
+            // 
+            this.sphere.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sphere.BackgroundImage")));
+            this.sphere.Location = new System.Drawing.Point(225, 19);
+            this.sphere.Name = "sphere";
+            this.sphere.Size = new System.Drawing.Size(23, 23);
+            this.sphere.TabIndex = 21;
+            this.sphere.UseVisualStyleBackColor = true;
+            this.sphere.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // solidDiamond
+            // 
+            this.solidDiamond.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("solidDiamond.BackgroundImage")));
+            this.solidDiamond.Location = new System.Drawing.Point(254, 19);
+            this.solidDiamond.Name = "solidDiamond";
+            this.solidDiamond.Size = new System.Drawing.Size(23, 23);
+            this.solidDiamond.TabIndex = 22;
+            this.solidDiamond.UseVisualStyleBackColor = true;
+            this.solidDiamond.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // shingle
+            // 
+            this.shingle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("shingle.BackgroundImage")));
+            this.shingle.Location = new System.Drawing.Point(283, 19);
+            this.shingle.Name = "shingle";
+            this.shingle.Size = new System.Drawing.Size(23, 23);
+            this.shingle.TabIndex = 23;
+            this.shingle.UseVisualStyleBackColor = true;
+            this.shingle.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // darkHorizontal
+            // 
+            this.darkHorizontal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("darkHorizontal.BackgroundImage")));
+            this.darkHorizontal.Location = new System.Drawing.Point(312, 19);
+            this.darkHorizontal.Name = "darkHorizontal";
+            this.darkHorizontal.Size = new System.Drawing.Size(23, 23);
+            this.darkHorizontal.TabIndex = 24;
+            this.darkHorizontal.UseVisualStyleBackColor = true;
+            this.darkHorizontal.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // largeConfetti
+            // 
+            this.largeConfetti.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("largeConfetti.BackgroundImage")));
+            this.largeConfetti.Location = new System.Drawing.Point(341, 19);
+            this.largeConfetti.Name = "largeConfetti";
+            this.largeConfetti.Size = new System.Drawing.Size(23, 23);
+            this.largeConfetti.TabIndex = 25;
+            this.largeConfetti.UseVisualStyleBackColor = true;
+            this.largeConfetti.Click += new System.EventHandler(this.btnBrush_Click);
             // 
             // canvasControl
             // 
             this.canvasControl.BackColor = System.Drawing.Color.White;
-            this.canvasControl.Location = new System.Drawing.Point(24, 84);
+            this.canvasControl.Location = new System.Drawing.Point(0, 131);
             this.canvasControl.Name = "canvasControl";
             this.canvasControl.Size = new System.Drawing.Size(400, 400);
             this.canvasControl.TabIndex = 3;
@@ -288,7 +432,7 @@ namespace PaintApplication.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(915, 561);
-            this.Controls.Add(this.btnBrush1);
+            this.Controls.Add(this.gbBrushes);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sizeTrackBar);
@@ -307,6 +451,7 @@ namespace PaintApplication.View
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
+            this.gbBrushes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -337,7 +482,19 @@ namespace PaintApplication.View
         private ToolStripMenuItem Horizontal;
         private ToolStripMenuItem VerticalMenuItem;
         private Button btnUndo;
-        private Button btnBrush1;
+        private Button backwardDiagonal;
+        private Button crossBrush;
+        private Button diagonalBrick;
+        private GroupBox gbBrushes;
+        private Button smallConfetti;
+        private Button zigZag;
+        private Button largeCheckerBoard;
+        private Button wave;
+        private Button sphere;
+        private Button solidDiamond;
+        private Button shingle;
+        private Button darkHorizontal;
+        private Button largeConfetti;
     }
 }
 
