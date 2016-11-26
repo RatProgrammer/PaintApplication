@@ -57,9 +57,7 @@ namespace PaintApplication.View
 
         public void UpdateCanvas(Image image)
         {
-            canvasControl.Image = image;
-            canvasControl.Invalidate();
-            canvasControl.Refresh();
+            canvasControl.UpdateCanvasSize(image);
         }
 
         private void btnTool_Click(object sender, EventArgs e)

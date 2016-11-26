@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PaintApplication.View
@@ -27,6 +28,7 @@ namespace PaintApplication.View
             }
         }
 
+
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
@@ -46,6 +48,21 @@ namespace PaintApplication.View
         protected virtual void OnCanvasMove(MouseEventArgs e)
         {
             MovePaint?.Invoke(e);
+        }
+
+        public void UpdateCanvasSize(Image image)
+        {
+            if (image.Width != this.Width)
+            {
+                this.Width = image.Width;
+            }
+            if (image.Height != this.Height)
+            {
+                this.Height = image.Height;
+            }
+           this.Image = image;
+           this.Invalidate();
+           this.Refresh();
         }
     }
 }

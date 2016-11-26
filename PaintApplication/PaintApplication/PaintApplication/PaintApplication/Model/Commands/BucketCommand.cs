@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
@@ -7,8 +8,11 @@ namespace PaintApplication.Model.Commands
 {
     class BucketCommand : IPaintCommand
     {
+        public event Action SnapshotEvent;
+
         public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
+            SnapshotEvent?.Invoke();
             FloodFill(current, point.X, point.Y, paintTool.Color);
         }
 

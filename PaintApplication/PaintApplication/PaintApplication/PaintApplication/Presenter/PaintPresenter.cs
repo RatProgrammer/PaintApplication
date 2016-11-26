@@ -26,6 +26,7 @@ namespace PaintApplication.Presenter
         public PaintPresenter(PaintForm paintForm, PaintTool paintTool)
         {
             _paintForm = paintForm;
+            _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
             _paintForm.StartPaintAction += ExecuteStartPaintAction;
             _paintForm.StopPaintAction += ExecuteStopPaintAction;
             _paintForm.ToolAction += ExecuteToolAction;
@@ -39,12 +40,12 @@ namespace PaintApplication.Presenter
             _paintForm.FlipAction += ExecuteFlipAction;
             _paintForm.UndoAction += ExecuteUndoAction;
             _paintForm.BrushAction += ExecuteBrushAction;
+            
             _paintTool = paintTool;
             _saveControler = new SaveControler();
             _loadControler = new LoadControler();
             _rotateTypeFactory = new RotateTypeFactory();
             _flipTypeFactory = new FlipTypeFactory();
-            _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
             _currentBitmap = new Bitmap(400,400);
             _temporaryBitmap = new Bitmap(400, 400);
             _caretaker = new Caretaker();
@@ -62,6 +63,7 @@ namespace PaintApplication.Presenter
         private void ExecuteToolAction(PaintToolType paintToolType)
         {
             _paintCommand = PaintCommandFactory.GetPaintCommand(paintToolType);
+            _paintCommand.SnapshotEvent += CreateSnapshot;
         }
         private void ExecuteBrushAction(BrushType brushType)
         {
@@ -78,6 +80,7 @@ namespace PaintApplication.Presenter
         }
         private void ExecuteSizeChangeAction(int width, int height)//to Canvas
         {
+            CreateSnapshot();
             using (_temporaryBitmap)
             {
                 _temporaryBitmap = new Bitmap(width, height);
@@ -89,9 +92,9 @@ namespace PaintApplication.Presenter
         }
         private void ExecuteStartPaintAction(Point point)
         {
-            CreateSnapshot();
             _paintCommand.ExecuteStart(ref _temporaryBitmap, ref _currentBitmap, _paintTool, point);
             _paintForm.UpdateCanvas(_currentBitmap);
+
         }
         private void ExecuteMovePaintAction(Point point)
         {

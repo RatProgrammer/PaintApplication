@@ -1,10 +1,13 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace PaintApplication.Model.Commands
 {
     class LineCommand:IPaintCommand
     {
         private Point _startPoint;
+
+        public event Action SnapshotEvent;
 
         public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
@@ -13,6 +16,8 @@ namespace PaintApplication.Model.Commands
 
         public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
+            if (!(_startPoint.X == point.X && _startPoint.Y == point.Y))
+                SnapshotEvent?.Invoke();
             using (Graphics graphics = Graphics.FromImage(current))
             {
                 graphics.DrawLine(paintTool.Pen, _startPoint, point);

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace PaintApplication.Model.Commands
 {
@@ -7,8 +8,11 @@ namespace PaintApplication.Model.Commands
         private Point _previousPoint;
         private Graphics _graphics;
 
+        public event Action SnapshotEvent;
+
         public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
+            SnapshotEvent?.Invoke();
             Point startPoint = point;
             current.SetPixel(startPoint.X, startPoint.Y, paintTool.Color);
              _previousPoint = point;

@@ -8,6 +8,8 @@ namespace PaintApplication.Model.Commands
         private Point _startPoint;
         private Rectangle _rectangle;
 
+        public event Action SnapshotEvent;
+
         public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
             _startPoint = point;
@@ -16,6 +18,8 @@ namespace PaintApplication.Model.Commands
 
         public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
         {
+            if (!(_startPoint.X == point.X && _startPoint.Y == point.Y))
+                SnapshotEvent?.Invoke();
             using (Graphics graphics = Graphics.FromImage(current))
             {
                 _rectangle.Location = new Point(Math.Min(_startPoint.X, point.X), Math.Min(_startPoint.Y, point.Y));
