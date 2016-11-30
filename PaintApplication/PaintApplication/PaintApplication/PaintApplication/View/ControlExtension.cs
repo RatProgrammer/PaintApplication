@@ -6,22 +6,22 @@ namespace PaintApplication.View
     {
         public static int GetClientWidth(this Control theControl)
         {
-            return theControl.Width - TCResize.Decoration;
+            return theControl.Width - Resizer.Decoration;
         }
 
         public static int GetClientHeight(this Control theControl)
         {
-            return theControl.Height - TCResize.Decoration;
+            return theControl.Height - Resizer.Decoration;
         }
 
         public static void SetClientWidth(this Control theControl, int width)
         {
-            theControl.Width = width + TCResize.Decoration;
+            theControl.Width = width + Resizer.Decoration;
         }
 
         public static void SetClientHeight(this Control theControl, int height)
         {
-            theControl.Height = height + TCResize.Decoration;
+            theControl.Height = height + Resizer.Decoration;
         }
     }
 }

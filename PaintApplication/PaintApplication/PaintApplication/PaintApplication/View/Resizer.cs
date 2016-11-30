@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace PaintApplication.View
 {
-    public class TCResize
+    public class Resizer
     {
         public Action SizeIsChanged;
         readonly Control controltobeResized;
@@ -14,7 +14,7 @@ namespace PaintApplication.View
         }
 
 
-        public TCResize(PictureBox theControl)
+        public Resizer(PictureBox theControl)
         {
             controltobeResized = theControl;
             InitializeComponent();
