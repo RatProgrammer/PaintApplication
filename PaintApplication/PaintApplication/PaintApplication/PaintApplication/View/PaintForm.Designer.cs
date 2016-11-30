@@ -58,27 +58,31 @@ namespace PaintApplication.View
             this.crossBrush = new System.Windows.Forms.Button();
             this.diagonalBrick = new System.Windows.Forms.Button();
             this.gbBrushes = new System.Windows.Forms.GroupBox();
-            this.smallConfetti = new System.Windows.Forms.Button();
-            this.zigZag = new System.Windows.Forms.Button();
-            this.largeCheckerBoard = new System.Windows.Forms.Button();
-            this.wave = new System.Windows.Forms.Button();
-            this.sphere = new System.Windows.Forms.Button();
-            this.solidDiamond = new System.Windows.Forms.Button();
-            this.shingle = new System.Windows.Forms.Button();
-            this.darkHorizontal = new System.Windows.Forms.Button();
             this.largeConfetti = new System.Windows.Forms.Button();
+            this.darkHorizontal = new System.Windows.Forms.Button();
+            this.shingle = new System.Windows.Forms.Button();
+            this.solidDiamond = new System.Windows.Forms.Button();
+            this.sphere = new System.Windows.Forms.Button();
+            this.wave = new System.Windows.Forms.Button();
+            this.largeCheckerBoard = new System.Windows.Forms.Button();
+            this.zigZag = new System.Windows.Forms.Button();
+            this.smallConfetti = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.canvasControl = new PaintApplication.View.CanvasControl();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).BeginInit();
             this.menu.SuspendLayout();
             this.gbBrushes.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPencil
             // 
             this.btnPencil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPencil.BackgroundImage")));
-            this.btnPencil.Location = new System.Drawing.Point(0, 27);
+            this.btnPencil.Location = new System.Drawing.Point(3, 3);
             this.btnPencil.Name = "btnPencil";
             this.btnPencil.Size = new System.Drawing.Size(68, 38);
             this.btnPencil.TabIndex = 1;
@@ -90,7 +94,7 @@ namespace PaintApplication.View
             // btnRubber
             // 
             this.btnRubber.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRubber.BackgroundImage")));
-            this.btnRubber.Location = new System.Drawing.Point(74, 27);
+            this.btnRubber.Location = new System.Drawing.Point(77, 3);
             this.btnRubber.Name = "btnRubber";
             this.btnRubber.Size = new System.Drawing.Size(68, 38);
             this.btnRubber.TabIndex = 4;
@@ -102,7 +106,7 @@ namespace PaintApplication.View
             // btnBucket
             // 
             this.btnBucket.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBucket.BackgroundImage")));
-            this.btnBucket.Location = new System.Drawing.Point(148, 27);
+            this.btnBucket.Location = new System.Drawing.Point(151, 3);
             this.btnBucket.Name = "btnBucket";
             this.btnBucket.Size = new System.Drawing.Size(68, 38);
             this.btnBucket.TabIndex = 5;
@@ -115,7 +119,7 @@ namespace PaintApplication.View
             // 
             this.btnCircle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCircle.BackgroundImage")));
             this.btnCircle.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCircle.Location = new System.Drawing.Point(222, 27);
+            this.btnCircle.Location = new System.Drawing.Point(225, 3);
             this.btnCircle.Name = "btnCircle";
             this.btnCircle.Size = new System.Drawing.Size(68, 38);
             this.btnCircle.TabIndex = 6;
@@ -127,7 +131,7 @@ namespace PaintApplication.View
             // btnRectangle
             // 
             this.btnRectangle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRectangle.BackgroundImage")));
-            this.btnRectangle.Location = new System.Drawing.Point(287, 27);
+            this.btnRectangle.Location = new System.Drawing.Point(290, 3);
             this.btnRectangle.Name = "btnRectangle";
             this.btnRectangle.Size = new System.Drawing.Size(68, 38);
             this.btnRectangle.TabIndex = 7;
@@ -139,7 +143,7 @@ namespace PaintApplication.View
             // btnLine
             // 
             this.btnLine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLine.BackgroundImage")));
-            this.btnLine.Location = new System.Drawing.Point(361, 27);
+            this.btnLine.Location = new System.Drawing.Point(364, 3);
             this.btnLine.Name = "btnLine";
             this.btnLine.Size = new System.Drawing.Size(68, 38);
             this.btnLine.TabIndex = 8;
@@ -151,7 +155,7 @@ namespace PaintApplication.View
             // pbColor
             // 
             this.pbColor.BackColor = System.Drawing.Color.Black;
-            this.pbColor.Location = new System.Drawing.Point(435, 28);
+            this.pbColor.Location = new System.Drawing.Point(438, 4);
             this.pbColor.Name = "pbColor";
             this.pbColor.Size = new System.Drawing.Size(41, 37);
             this.pbColor.TabIndex = 9;
@@ -160,7 +164,7 @@ namespace PaintApplication.View
             // 
             // sizeTrackBar
             // 
-            this.sizeTrackBar.Location = new System.Drawing.Point(491, 28);
+            this.sizeTrackBar.Location = new System.Drawing.Point(494, 4);
             this.sizeTrackBar.Maximum = 25;
             this.sizeTrackBar.Minimum = 1;
             this.sizeTrackBar.Name = "sizeTrackBar";
@@ -172,7 +176,7 @@ namespace PaintApplication.View
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(615, 48);
+            this.label1.Location = new System.Drawing.Point(618, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 11;
@@ -185,7 +189,7 @@ namespace PaintApplication.View
             this.Vertical});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(915, 24);
+            this.menu.Size = new System.Drawing.Size(1344, 24);
             this.menu.TabIndex = 12;
             this.menu.Text = "menu";
             // 
@@ -268,7 +272,7 @@ namespace PaintApplication.View
             // 
             // btnUndo
             // 
-            this.btnUndo.Location = new System.Drawing.Point(601, 38);
+            this.btnUndo.Location = new System.Drawing.Point(604, 14);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 13;
@@ -320,92 +324,12 @@ namespace PaintApplication.View
             this.gbBrushes.Controls.Add(this.backwardDiagonal);
             this.gbBrushes.Controls.Add(this.diagonalBrick);
             this.gbBrushes.Controls.Add(this.crossBrush);
-            this.gbBrushes.Location = new System.Drawing.Point(0, 68);
+            this.gbBrushes.Location = new System.Drawing.Point(3, 44);
             this.gbBrushes.Name = "gbBrushes";
             this.gbBrushes.Size = new System.Drawing.Size(372, 57);
             this.gbBrushes.TabIndex = 17;
             this.gbBrushes.TabStop = false;
             this.gbBrushes.Text = "Brushes";
-            // 
-            // smallConfetti
-            // 
-            this.smallConfetti.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("smallConfetti.BackgroundImage")));
-            this.smallConfetti.Location = new System.Drawing.Point(109, 19);
-            this.smallConfetti.Name = "smallConfetti";
-            this.smallConfetti.Size = new System.Drawing.Size(23, 23);
-            this.smallConfetti.TabIndex = 17;
-            this.smallConfetti.UseVisualStyleBackColor = true;
-            this.smallConfetti.Click += new System.EventHandler(this.btnBrush_Click);
-            // 
-            // zigZag
-            // 
-            this.zigZag.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("zigZag.BackgroundImage")));
-            this.zigZag.Location = new System.Drawing.Point(138, 19);
-            this.zigZag.Name = "zigZag";
-            this.zigZag.Size = new System.Drawing.Size(23, 23);
-            this.zigZag.TabIndex = 18;
-            this.zigZag.UseVisualStyleBackColor = true;
-            this.zigZag.Click += new System.EventHandler(this.btnBrush_Click);
-            // 
-            // largeCheckerBoard
-            // 
-            this.largeCheckerBoard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("largeCheckerBoard.BackgroundImage")));
-            this.largeCheckerBoard.Location = new System.Drawing.Point(167, 19);
-            this.largeCheckerBoard.Name = "largeCheckerBoard";
-            this.largeCheckerBoard.Size = new System.Drawing.Size(23, 23);
-            this.largeCheckerBoard.TabIndex = 19;
-            this.largeCheckerBoard.UseVisualStyleBackColor = true;
-            this.largeCheckerBoard.Click += new System.EventHandler(this.btnBrush_Click);
-            // 
-            // wave
-            // 
-            this.wave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("wave.BackgroundImage")));
-            this.wave.Location = new System.Drawing.Point(196, 19);
-            this.wave.Name = "wave";
-            this.wave.Size = new System.Drawing.Size(23, 23);
-            this.wave.TabIndex = 20;
-            this.wave.UseVisualStyleBackColor = true;
-            this.wave.Click += new System.EventHandler(this.btnBrush_Click);
-            // 
-            // sphere
-            // 
-            this.sphere.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sphere.BackgroundImage")));
-            this.sphere.Location = new System.Drawing.Point(225, 19);
-            this.sphere.Name = "sphere";
-            this.sphere.Size = new System.Drawing.Size(23, 23);
-            this.sphere.TabIndex = 21;
-            this.sphere.UseVisualStyleBackColor = true;
-            this.sphere.Click += new System.EventHandler(this.btnBrush_Click);
-            // 
-            // solidDiamond
-            // 
-            this.solidDiamond.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("solidDiamond.BackgroundImage")));
-            this.solidDiamond.Location = new System.Drawing.Point(254, 19);
-            this.solidDiamond.Name = "solidDiamond";
-            this.solidDiamond.Size = new System.Drawing.Size(23, 23);
-            this.solidDiamond.TabIndex = 22;
-            this.solidDiamond.UseVisualStyleBackColor = true;
-            this.solidDiamond.Click += new System.EventHandler(this.btnBrush_Click);
-            // 
-            // shingle
-            // 
-            this.shingle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("shingle.BackgroundImage")));
-            this.shingle.Location = new System.Drawing.Point(283, 19);
-            this.shingle.Name = "shingle";
-            this.shingle.Size = new System.Drawing.Size(23, 23);
-            this.shingle.TabIndex = 23;
-            this.shingle.UseVisualStyleBackColor = true;
-            this.shingle.Click += new System.EventHandler(this.btnBrush_Click);
-            // 
-            // darkHorizontal
-            // 
-            this.darkHorizontal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("darkHorizontal.BackgroundImage")));
-            this.darkHorizontal.Location = new System.Drawing.Point(312, 19);
-            this.darkHorizontal.Name = "darkHorizontal";
-            this.darkHorizontal.Size = new System.Drawing.Size(23, 23);
-            this.darkHorizontal.TabIndex = 24;
-            this.darkHorizontal.UseVisualStyleBackColor = true;
-            this.darkHorizontal.Click += new System.EventHandler(this.btnBrush_Click);
             // 
             // largeConfetti
             // 
@@ -417,10 +341,119 @@ namespace PaintApplication.View
             this.largeConfetti.UseVisualStyleBackColor = true;
             this.largeConfetti.Click += new System.EventHandler(this.btnBrush_Click);
             // 
+            // darkHorizontal
+            // 
+            this.darkHorizontal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("darkHorizontal.BackgroundImage")));
+            this.darkHorizontal.Location = new System.Drawing.Point(312, 19);
+            this.darkHorizontal.Name = "darkHorizontal";
+            this.darkHorizontal.Size = new System.Drawing.Size(23, 23);
+            this.darkHorizontal.TabIndex = 24;
+            this.darkHorizontal.UseVisualStyleBackColor = true;
+            this.darkHorizontal.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // shingle
+            // 
+            this.shingle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("shingle.BackgroundImage")));
+            this.shingle.Location = new System.Drawing.Point(283, 19);
+            this.shingle.Name = "shingle";
+            this.shingle.Size = new System.Drawing.Size(23, 23);
+            this.shingle.TabIndex = 23;
+            this.shingle.UseVisualStyleBackColor = true;
+            this.shingle.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // solidDiamond
+            // 
+            this.solidDiamond.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("solidDiamond.BackgroundImage")));
+            this.solidDiamond.Location = new System.Drawing.Point(254, 19);
+            this.solidDiamond.Name = "solidDiamond";
+            this.solidDiamond.Size = new System.Drawing.Size(23, 23);
+            this.solidDiamond.TabIndex = 22;
+            this.solidDiamond.UseVisualStyleBackColor = true;
+            this.solidDiamond.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // sphere
+            // 
+            this.sphere.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sphere.BackgroundImage")));
+            this.sphere.Location = new System.Drawing.Point(225, 19);
+            this.sphere.Name = "sphere";
+            this.sphere.Size = new System.Drawing.Size(23, 23);
+            this.sphere.TabIndex = 21;
+            this.sphere.UseVisualStyleBackColor = true;
+            this.sphere.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // wave
+            // 
+            this.wave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("wave.BackgroundImage")));
+            this.wave.Location = new System.Drawing.Point(196, 19);
+            this.wave.Name = "wave";
+            this.wave.Size = new System.Drawing.Size(23, 23);
+            this.wave.TabIndex = 20;
+            this.wave.UseVisualStyleBackColor = true;
+            this.wave.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // largeCheckerBoard
+            // 
+            this.largeCheckerBoard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("largeCheckerBoard.BackgroundImage")));
+            this.largeCheckerBoard.Location = new System.Drawing.Point(167, 19);
+            this.largeCheckerBoard.Name = "largeCheckerBoard";
+            this.largeCheckerBoard.Size = new System.Drawing.Size(23, 23);
+            this.largeCheckerBoard.TabIndex = 19;
+            this.largeCheckerBoard.UseVisualStyleBackColor = true;
+            this.largeCheckerBoard.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // zigZag
+            // 
+            this.zigZag.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("zigZag.BackgroundImage")));
+            this.zigZag.Location = new System.Drawing.Point(138, 19);
+            this.zigZag.Name = "zigZag";
+            this.zigZag.Size = new System.Drawing.Size(23, 23);
+            this.zigZag.TabIndex = 18;
+            this.zigZag.UseVisualStyleBackColor = true;
+            this.zigZag.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // smallConfetti
+            // 
+            this.smallConfetti.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("smallConfetti.BackgroundImage")));
+            this.smallConfetti.Location = new System.Drawing.Point(109, 19);
+            this.smallConfetti.Name = "smallConfetti";
+            this.smallConfetti.Size = new System.Drawing.Size(23, 23);
+            this.smallConfetti.TabIndex = 17;
+            this.smallConfetti.UseVisualStyleBackColor = true;
+            this.smallConfetti.Click += new System.EventHandler(this.btnBrush_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.canvasControl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1344, 615);
+            this.panel1.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnPencil);
+            this.panel2.Controls.Add(this.btnRubber);
+            this.panel2.Controls.Add(this.gbBrushes);
+            this.panel2.Controls.Add(this.btnBucket);
+            this.panel2.Controls.Add(this.btnUndo);
+            this.panel2.Controls.Add(this.btnCircle);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnRectangle);
+            this.panel2.Controls.Add(this.sizeTrackBar);
+            this.panel2.Controls.Add(this.btnLine);
+            this.panel2.Controls.Add(this.pbColor);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 24);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1344, 100);
+            this.panel2.TabIndex = 19;
+            // 
             // canvasControl
             // 
             this.canvasControl.BackColor = System.Drawing.Color.White;
-            this.canvasControl.Location = new System.Drawing.Point(0, 131);
+            this.canvasControl.Location = new System.Drawing.Point(3, 106);
             this.canvasControl.Name = "canvasControl";
             this.canvasControl.Size = new System.Drawing.Size(400, 400);
             this.canvasControl.TabIndex = 3;
@@ -431,19 +464,9 @@ namespace PaintApplication.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(915, 561);
-            this.Controls.Add(this.gbBrushes);
-            this.Controls.Add(this.btnUndo);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.sizeTrackBar);
-            this.Controls.Add(this.pbColor);
-            this.Controls.Add(this.btnLine);
-            this.Controls.Add(this.btnRectangle);
-            this.Controls.Add(this.btnCircle);
-            this.Controls.Add(this.btnBucket);
-            this.Controls.Add(this.btnRubber);
-            this.Controls.Add(this.canvasControl);
-            this.Controls.Add(this.btnPencil);
+            this.ClientSize = new System.Drawing.Size(1344, 639);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menu);
             this.Name = "PaintForm";
             this.Text = "PaintForm";
@@ -452,6 +475,9 @@ namespace PaintApplication.View
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.gbBrushes.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -495,6 +521,8 @@ namespace PaintApplication.View
         private Button shingle;
         private Button darkHorizontal;
         private Button largeConfetti;
+        private Panel panel1;
+        private Panel panel2;
     }
 }
 
