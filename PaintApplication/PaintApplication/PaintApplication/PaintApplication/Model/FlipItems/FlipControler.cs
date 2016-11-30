@@ -6,14 +6,17 @@ namespace PaintApplication.Model.FlipItems
     {
         public Bitmap FlipHorizontal(Bitmap currentBitmap)
         {
-            Bitmap bitmapToFlip = new Bitmap(currentBitmap, currentBitmap.Width, currentBitmap.Height);
-            bitmapToFlip.RotateFlip(RotateFlipType.Rotate180FlipX);
-            return bitmapToFlip;
+            return FlipBitmap(RotateFlipType.Rotate180FlipX, currentBitmap);
         }
         public Bitmap FlipVertical(Bitmap currentBitmap)
         {
+            return FlipBitmap(RotateFlipType.Rotate180FlipY, currentBitmap);
+        }
+
+        private Bitmap FlipBitmap(RotateFlipType rotateFlipType, Bitmap currentBitmap)
+        {
             Bitmap bitmapToFlip = new Bitmap(currentBitmap, currentBitmap.Width, currentBitmap.Height);
-            bitmapToFlip.RotateFlip(RotateFlipType.Rotate180FlipY);
+            bitmapToFlip.RotateFlip(rotateFlipType);
             return bitmapToFlip;
         }
     }

@@ -5,6 +5,7 @@ using PaintApplication.Model.Commands;
 using PaintApplication.Model.FlipItems;
 using PaintApplication.Model.MementoItems;
 using PaintApplication.Model.RotateItems;
+using PaintApplication.Model.Utility;
 using PaintApplication.View;
 
 namespace PaintApplication.Presenter
@@ -78,16 +79,15 @@ namespace PaintApplication.Presenter
         {
             _paintTool.SetPenSize(size);
         }
-        private void ExecuteSizeChangeAction(int width, int height)//to Canvas
+        private void ExecuteSizeChangeAction(int width, int height)
         {
             CreateSnapshot();
             using (_temporaryBitmap)
             {
                 _temporaryBitmap = new Bitmap(width, height);
-                Graphics graphics = Graphics.FromImage(_temporaryBitmap);
-                graphics.FillRectangle(Brushes.White, 0, 0, width, height);
-                graphics.DrawImage(_currentBitmap, 0, 0, _currentBitmap.Width, _currentBitmap.Height);
+                 ResizeUtil.Resize(_temporaryBitmap,_currentBitmap, width, height);
                 _currentBitmap = new Bitmap(_temporaryBitmap);
+                _paintForm.UpdateCanvas(_currentBitmap);
             }
         }
         private void ExecuteStartPaintAction(Point point)

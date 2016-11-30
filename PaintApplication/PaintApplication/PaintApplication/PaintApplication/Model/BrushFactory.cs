@@ -6,7 +6,7 @@ namespace PaintApplication.Model
 {
     internal class BrushFactory
     {
-        private Color backColor = Color.Transparent;
+        private readonly Color backColor = Color.Transparent;
         public Brush CreateBrush(BrushType brushType, Color color)
         {
             switch (brushType)

@@ -10,10 +10,10 @@ namespace PaintApplication.Model.Commands
     {
         public event Action SnapshotEvent;
 
-        public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteStart(ref Bitmap temporary, ref Bitmap currentBitmap, PaintTool paintTool, Point point)
         {
             SnapshotEvent?.Invoke();
-            FloodFill(current, point.X, point.Y, paintTool.Color);
+            FloodFill(currentBitmap, point.X, point.Y, paintTool.Color);
         }
 
         public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)

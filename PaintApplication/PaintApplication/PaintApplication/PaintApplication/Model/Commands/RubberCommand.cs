@@ -9,14 +9,13 @@ namespace PaintApplication.Model.Commands
         private Graphics _graphics;
         public event Action SnapshotEvent;
 
-        public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteStart(ref Bitmap temporary, ref Bitmap currentBitmap, PaintTool paintTool, Point point)
         {
             SnapshotEvent?.Invoke();
-            using (_graphics = Graphics.FromImage(current))
+            using (_graphics = Graphics.FromImage(currentBitmap))
             {
                 _startPoint = point;
-                Pen newPen = new Pen(Color.White, paintTool.Pen.Width);
-                _graphics.DrawLine(newPen, _startPoint, point);
+                Rubber(paintTool, point);
             }
         }
 
@@ -29,10 +28,15 @@ namespace PaintApplication.Model.Commands
         {
             using (_graphics = Graphics.FromImage(current))
             {
-                Pen newPen = new Pen(Color.White, paintTool.Pen.Width);
-                _graphics.DrawLine(newPen, _startPoint, point);
+                Rubber(paintTool,point);
             }
             _startPoint = point;
+        }
+
+        private void Rubber(PaintTool paintTool, Point point)
+        {
+            Pen newPen = new Pen(Color.White, paintTool.Pen.Width);
+            _graphics.DrawLine(newPen, _startPoint, point);
         }
     }
 }

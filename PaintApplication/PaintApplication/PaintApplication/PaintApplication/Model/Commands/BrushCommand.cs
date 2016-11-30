@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using PaintApplication.Model.Utility;
 
 namespace PaintApplication.Model.Commands
 {
@@ -10,12 +11,10 @@ namespace PaintApplication.Model.Commands
 
         public event Action SnapshotEvent;
 
-        public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteStart(ref Bitmap temporary, ref Bitmap currentBitmap, PaintTool paintTool, Point point)
         {
             SnapshotEvent?.Invoke();
-            Point startPoint = point;
-            current.SetPixel(startPoint.X, startPoint.Y, paintTool.Color);
-            _previousPoint = point;
+            _previousPoint = LineUtil.SetFirstPoint(point, currentBitmap, paintTool);
         }
 
         public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)

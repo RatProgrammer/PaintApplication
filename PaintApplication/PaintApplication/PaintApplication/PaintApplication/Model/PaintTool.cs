@@ -6,11 +6,8 @@ namespace PaintApplication.Model
     {
         public Color Color { get; private set; }
         public Pen Pen { get; private set; }
-
-        private float _penSize;
-
         public Brush Brush { get; private set; }
-
+        private float _penSize;
         private BrushType _brushType;
         private readonly BrushFactory _brushFactory;
 
@@ -36,7 +33,7 @@ namespace PaintApplication.Model
 
         public void SetBrush(BrushType brushType)
         {
-            Brush= _brushFactory.CreateBrush(brushType, Color);
+            Brush = _brushFactory.CreateBrush(brushType, Color);
             _brushType = brushType;
         }
 

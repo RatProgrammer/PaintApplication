@@ -10,7 +10,7 @@ namespace PaintApplication.Model.Commands
 
         public event Action SnapshotEvent;
 
-        public void ExecuteStart(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteStart(ref Bitmap temporary, ref Bitmap currentBitmap, PaintTool paintTool, Point point)
         {
             _startPoint = point;
             _rectangle = new Rectangle();
@@ -22,8 +22,8 @@ namespace PaintApplication.Model.Commands
                 SnapshotEvent?.Invoke();
             using (Graphics graphics = Graphics.FromImage(current))
             {
-                _rectangle.Location = new Point(Math.Min(_startPoint.X, point.X), Math.Min(_startPoint.Y, point.Y));
-                _rectangle.Size = new Size(Math.Abs(_startPoint.X - point.X), Math.Abs(_startPoint.Y - point.Y));
+                _rectangle.Location = RectangleUtil.GetLocation(_startPoint, point);
+                _rectangle.Size = RectangleUtil.GetSize(_startPoint, point);
                 graphics.DrawRectangle(paintTool.Pen, _rectangle);
             }
         }
@@ -32,8 +32,8 @@ namespace PaintApplication.Model.Commands
         {
             using (Graphics graphics = Graphics.FromImage(temporary))
             {
-                _rectangle.Location = new Point(Math.Min(_startPoint.X, point.X), Math.Min(_startPoint.Y, point.Y));
-                _rectangle.Size = new Size(Math.Abs(_startPoint.X - point.X), Math.Abs(_startPoint.Y - point.Y));
+                _rectangle.Location = RectangleUtil.GetLocation(_startPoint, point);
+                _rectangle.Size = RectangleUtil.GetSize(_startPoint, point);
                 graphics.DrawRectangle(paintTool.Pen, _rectangle);
             }
         }
