@@ -7,14 +7,14 @@ namespace PaintApplication.Model.Commands
     {
         public event Action SnapshotEvent;
 
-        public void ExecuteStart(ref Bitmap temporary, ref Bitmap currentBitmap, PaintTool paintTool, Point point)
+        public void ExecuteStart(ref Canvas temporary, ref Canvas currentCanvas, PaintTool paintTool, Point point)
         {
         }
-        public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteStop(ref Canvas temporary, ref Canvas current, PaintTool paintTool, Point point)
         {
         }
 
-        public void ExecuteMove(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteMove(ref Canvas temporary, ref Canvas current, PaintTool paintTool, Point point)
         {
         }
     }

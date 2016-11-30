@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\BrushFactory.cs" />
+    <Compile Include="Model\Canvas.cs" />
     <Compile Include="Model\Commands\BrushCommand.cs" />
     <Compile Include="Model\BrushType.cs" />
     <Compile Include="Model\Commands\BucketCommand.cs" />
@@ -73,7 +74,6 @@
     <Compile Include="Model\RotateItems\RotateTypeFactory.cs" />
     <Compile Include="Model\SaveControler.cs" />
     <Compile Include="Model\Utility\EnumUtil.cs" />
-    <Compile Include="Model\Utility\ResizeUtil.cs" />
     <Compile Include="Presenter\PaintPresenter.cs" />
     <Compile Include="Model\PaintTool.cs" />
     <Compile Include="View\CanvasControl.cs">
@@ -88,7 +88,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\TCResize.cs" />
+    <Compile Include="View\Resizer.cs" />
     <EmbeddedResource Include="View\PaintForm.resx">
       <DependentUpon>PaintForm.cs</DependentUpon>
     </EmbeddedResource>

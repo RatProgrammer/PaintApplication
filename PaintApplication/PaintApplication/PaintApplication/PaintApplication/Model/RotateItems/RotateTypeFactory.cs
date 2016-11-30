@@ -6,7 +6,7 @@ namespace PaintApplication.Model.RotateItems
     class RotateTypeFactory
     {
         private readonly RotateControler _rotateControler=new RotateControler();
-        public  Bitmap GetRotateType(RotateTypes rotateTypes,Bitmap currentBitmap)
+        public  Bitmap Rotate(RotateTypes rotateTypes, Bitmap currentBitmap)
         {
             switch (rotateTypes)
             {

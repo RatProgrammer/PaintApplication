@@ -11,20 +11,20 @@ namespace PaintApplication.Model.Commands
 
         public event Action SnapshotEvent;
 
-        public void ExecuteStart(ref Bitmap temporary, ref Bitmap currentBitmap, PaintTool paintTool, Point point)
+        public void ExecuteStart(ref Canvas temporary, ref Canvas currentCanvas, PaintTool paintTool, Point point)
         {
             SnapshotEvent?.Invoke();
-            _previousPoint = LineUtil.SetFirstPoint(point, currentBitmap, paintTool);
+            _previousPoint = LineUtil.SetFirstPoint(point, currentCanvas.Bitmap, paintTool);
         }
 
-        public void ExecuteStop(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteStop(ref Canvas temporary, ref Canvas current, PaintTool paintTool, Point point)
         {
             _previousPoint = new Point(0, 0);
         }
 
-        public void ExecuteMove(ref Bitmap temporary, ref Bitmap current, PaintTool paintTool, Point point)
+        public void ExecuteMove(ref Canvas temporary, ref Canvas current, PaintTool paintTool, Point point)
         {
-            using (_graphics = Graphics.FromImage(current))
+            using (_graphics = Graphics.FromImage(current.Bitmap))
             {
                 Rectangle rectangle = new Rectangle(point.X, point.Y, 10, 10);
                 _graphics.FillEllipse(paintTool.Brush, rectangle);

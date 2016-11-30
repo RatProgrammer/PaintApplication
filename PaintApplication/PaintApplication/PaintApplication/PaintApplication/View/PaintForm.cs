@@ -18,7 +18,7 @@ namespace PaintApplication.View
         public event Action<int> SizePenAction;
         public event Action<int, int> SizeChangeAction;
         public event Action SaveAction;
-        public event Action<CanvasControl> LoadAction;
+        public event Action<string> LoadAction;
         public event Action<RotateTypes> RotateAction;
         public event Action<FlipType> FlipAction;
         public event Action UndoAction;
@@ -27,8 +27,8 @@ namespace PaintApplication.View
         public PaintForm()
         {
             InitializeComponent();
-            TCResize tcResize = new TCResize(canvasControl);
-            tcResize.SizeIsChanged += canvasControl_SizeChanged;
+            Resizer resizer = new Resizer(canvasControl);
+            resizer.SizeIsChanged += canvasControl_SizeChanged;
             InitCanvas();
         }
 
@@ -99,7 +99,11 @@ namespace PaintApplication.View
         
         private void loadMenuItem_Click(object sender, EventArgs e)
         {
-            LoadAction?.Invoke(canvasControl);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                LoadAction?.Invoke(openFileDialog.FileName);
+            }
         }
 
         private void saveMenuItem_Click(object sender, EventArgs e)
