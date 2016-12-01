@@ -17,7 +17,7 @@ namespace PaintApplication.Presenter
         private readonly PaintTool _paintTool;
         private  IPaintCommand _paintCommand;
         private readonly SaveControler _saveControler;
-        private readonly LoadControler _loadControler;
+        private readonly BitmapLoader _bitmapLoader;
         private Originator _originator;
         private readonly Caretaker _caretaker;
 
@@ -41,7 +41,7 @@ namespace PaintApplication.Presenter
             
             _paintTool = paintTool;
             _saveControler = new SaveControler();
-            _loadControler = new LoadControler();
+            _bitmapLoader = new BitmapLoader();
             _currentCanvas = new Canvas(400, 400);
             _temporaryCanvas = new Canvas(400, 400);
             _caretaker = new Caretaker();
@@ -76,7 +76,6 @@ namespace PaintApplication.Presenter
         {
             _paintCommand.ExecuteStart(ref _temporaryCanvas, ref _currentCanvas, _paintTool, point);
             _paintForm.UpdateCanvas(_currentCanvas.Bitmap);
-
         }
         private void ExecuteMovePaintAction(Point point)
         {
@@ -105,17 +104,17 @@ namespace PaintApplication.Presenter
         }
         private void ExecuteUndoAction()
         {
-           // _caretaker.RestoreMemento(_originator);
-           // _currentCanvas = _originator.GetBitmap();
-           //_paintForm.UpdateCanvas(_currentCanvas);
+            _caretaker.RestoreMemento(_originator);
+            var bitmap = _originator.GetBitmap();
+            _currentCanvas.LoadBitmap(bitmap);
+            _paintForm.UpdateCanvas(_currentCanvas.Bitmap);
         }
         private void ExecuteLoadAction(string filePath)
         {
             CreateSnapshot();
-            //Bitmap bitmap = _loadControler.LoadBitmapFromFile(_currentCanvas.Bitmap);
-            //canvasControl.Size = new Size(bitmap.Width, bitmap.Height);
-            //canvasControl.Image = bitmap;
-            //_currentCanvas = new Bitmap(canvasControl.Image);
+            var loadedBitmap = _bitmapLoader.LoadBitmapFromFile(filePath);
+            _currentCanvas.LoadBitmap(loadedBitmap);
+            _paintForm.UpdateCanvas(_currentCanvas.Bitmap);
         }
         private void ExecuteSaveAction()
         {

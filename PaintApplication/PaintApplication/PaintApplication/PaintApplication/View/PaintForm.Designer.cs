@@ -41,7 +41,6 @@ namespace PaintApplication.View
             this.pbColor = new System.Windows.Forms.PictureBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.sizeTrackBar = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,15 +67,17 @@ namespace PaintApplication.View
             this.zigZag = new System.Windows.Forms.Button();
             this.smallConfetti = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.canvasControl = new PaintApplication.View.CanvasControl();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbColor = new System.Windows.Forms.Label();
+            this.lbPencilSize = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).BeginInit();
             this.menu.SuspendLayout();
             this.gbBrushes.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPencil
@@ -131,7 +132,7 @@ namespace PaintApplication.View
             // btnRectangle
             // 
             this.btnRectangle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRectangle.BackgroundImage")));
-            this.btnRectangle.Location = new System.Drawing.Point(290, 17);
+            this.btnRectangle.Location = new System.Drawing.Point(299, 17);
             this.btnRectangle.Name = "btnRectangle";
             this.btnRectangle.Size = new System.Drawing.Size(68, 38);
             this.btnRectangle.TabIndex = 7;
@@ -143,7 +144,7 @@ namespace PaintApplication.View
             // btnLine
             // 
             this.btnLine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLine.BackgroundImage")));
-            this.btnLine.Location = new System.Drawing.Point(364, 17);
+            this.btnLine.Location = new System.Drawing.Point(373, 17);
             this.btnLine.Name = "btnLine";
             this.btnLine.Size = new System.Drawing.Size(68, 38);
             this.btnLine.TabIndex = 8;
@@ -155,7 +156,7 @@ namespace PaintApplication.View
             // pbColor
             // 
             this.pbColor.BackColor = System.Drawing.Color.Black;
-            this.pbColor.Location = new System.Drawing.Point(438, 18);
+            this.pbColor.Location = new System.Drawing.Point(447, 18);
             this.pbColor.Name = "pbColor";
             this.pbColor.Size = new System.Drawing.Size(41, 37);
             this.pbColor.TabIndex = 9;
@@ -172,14 +173,6 @@ namespace PaintApplication.View
             this.sizeTrackBar.TabIndex = 10;
             this.sizeTrackBar.Value = 1;
             this.sizeTrackBar.ValueChanged += new System.EventHandler(this.sizeTrackBar_ValueChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(618, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 11;
             // 
             // menu
             // 
@@ -431,15 +424,25 @@ namespace PaintApplication.View
             this.panel1.Size = new System.Drawing.Size(1344, 615);
             this.panel1.TabIndex = 18;
             // 
+            // canvasControl
+            // 
+            this.canvasControl.BackColor = System.Drawing.Color.White;
+            this.canvasControl.Location = new System.Drawing.Point(3, 120);
+            this.canvasControl.Name = "canvasControl";
+            this.canvasControl.Size = new System.Drawing.Size(400, 400);
+            this.canvasControl.TabIndex = 3;
+            this.canvasControl.TabStop = false;
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lbPencilSize);
+            this.panel2.Controls.Add(this.lbColor);
             this.panel2.Controls.Add(this.btnPencil);
             this.panel2.Controls.Add(this.btnRubber);
             this.panel2.Controls.Add(this.gbBrushes);
             this.panel2.Controls.Add(this.btnBucket);
             this.panel2.Controls.Add(this.btnUndo);
             this.panel2.Controls.Add(this.btnCircle);
-            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnRectangle);
             this.panel2.Controls.Add(this.sizeTrackBar);
             this.panel2.Controls.Add(this.btnLine);
@@ -450,14 +453,23 @@ namespace PaintApplication.View
             this.panel2.Size = new System.Drawing.Size(1344, 114);
             this.panel2.TabIndex = 19;
             // 
-            // canvasControl
+            // lbColor
             // 
-            this.canvasControl.BackColor = System.Drawing.Color.White;
-            this.canvasControl.Location = new System.Drawing.Point(3, 120);
-            this.canvasControl.Name = "canvasControl";
-            this.canvasControl.Size = new System.Drawing.Size(400, 400);
-            this.canvasControl.TabIndex = 3;
-            this.canvasControl.TabStop = false;
+            this.lbColor.AutoSize = true;
+            this.lbColor.Location = new System.Drawing.Point(448, 58);
+            this.lbColor.Name = "lbColor";
+            this.lbColor.Size = new System.Drawing.Size(31, 13);
+            this.lbColor.TabIndex = 18;
+            this.lbColor.Text = "Color";
+            // 
+            // lbPencilSize
+            // 
+            this.lbPencilSize.AutoSize = true;
+            this.lbPencilSize.Location = new System.Drawing.Point(507, 57);
+            this.lbPencilSize.Name = "lbPencilSize";
+            this.lbPencilSize.Size = new System.Drawing.Size(59, 13);
+            this.lbPencilSize.TabIndex = 19;
+            this.lbPencilSize.Text = "Pencil Size";
             // 
             // PaintForm
             // 
@@ -476,9 +488,9 @@ namespace PaintApplication.View
             this.menu.PerformLayout();
             this.gbBrushes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,7 +507,6 @@ namespace PaintApplication.View
         private PictureBox pbColor;
         private ColorDialog colorDialog;
         private TrackBar sizeTrackBar;
-        private Label label1;
         private MenuStrip menu;
         private ToolStripMenuItem fileMenuItem;
         private ToolStripMenuItem loadMenuItem;
@@ -523,6 +534,8 @@ namespace PaintApplication.View
         private Button largeConfetti;
         private Panel panel1;
         private Panel panel2;
+        private Label lbColor;
+        private Label lbPencilSize;
     }
 }
 

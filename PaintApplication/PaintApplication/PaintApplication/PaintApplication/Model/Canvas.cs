@@ -25,13 +25,14 @@ namespace PaintApplication.Model
             _bitmap = new Bitmap(canvas.Bitmap);
         }
 
+        
         private void UpdateSize(int width, int height)
         {
             Width = width;
             Height = height;
         }
 
-        private void InitializeBitmap()// to Canvas
+        private void InitializeBitmap()
         {
             using (Graphics graphics = Graphics.FromImage(_bitmap))
             {
@@ -65,6 +66,12 @@ namespace PaintApplication.Model
         {
             FlipTypeFactory factory = new FlipTypeFactory();
             factory.Flip(flipType, _bitmap);
+        }
+
+        public void LoadBitmap(Bitmap bitmap)
+        {
+            _bitmap = new Bitmap(bitmap);
+            UpdateSize(bitmap.Width, bitmap.Height);
         }
     }
 }
