@@ -89,7 +89,6 @@ namespace PaintApplication.View
         private void sizeTrackBar_ValueChanged(object sender, EventArgs e)
         {
             SizePenAction?.Invoke(sizeTrackBar.Value);
-            label1.Text = sizeTrackBar.Value.ToString();
         }
 
         private void canvasControl_SizeChanged()
