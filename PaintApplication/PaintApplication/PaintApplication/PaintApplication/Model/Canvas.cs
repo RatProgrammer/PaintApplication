@@ -59,13 +59,13 @@ namespace PaintApplication.Model
         public void Rotate(RotateTypes rotateTypes)
         {
             RotateTypeFactory factory = new RotateTypeFactory();
-            factory.Rotate(rotateTypes, _bitmap);
+            _bitmap = new Bitmap(factory.Rotate(rotateTypes, _bitmap));
         }
 
         public void Flip(FlipType flipType)
         {
             FlipTypeFactory factory = new FlipTypeFactory();
-            factory.Flip(flipType, _bitmap);
+            _bitmap = new Bitmap(factory.Flip(flipType, _bitmap));
         }
 
         public void LoadBitmap(Bitmap bitmap)
