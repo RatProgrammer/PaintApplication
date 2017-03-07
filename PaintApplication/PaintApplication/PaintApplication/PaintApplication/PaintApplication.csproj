@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.4.0\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="IApp.cs" />
     <Compile Include="Model\BrushFactory.cs" />
     <Compile Include="Model\Canvas.cs" />
     <Compile Include="Model\Commands\BrushCommand.cs" />
@@ -80,6 +87,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="View\ControlExtension.cs" />
+    <Compile Include="View\IPaintForm.cs" />
     <Compile Include="View\PaintForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +109,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

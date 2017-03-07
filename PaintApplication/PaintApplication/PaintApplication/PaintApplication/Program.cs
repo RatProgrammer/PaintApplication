@@ -12,11 +12,9 @@ namespace PaintApplication
         /// </summary>
         [STAThread]
         static void Main()
-        { 
-            PaintForm paintForm = new PaintForm();
-            PaintTool paintTool = new PaintTool();
-            PaintPresenter paintPresenter = new PaintPresenter(paintForm, paintTool);
-            paintPresenter.RunApp();
+        {
+            var app = Bootstrap.Create();
+            app.Run();
 
         }
     }
