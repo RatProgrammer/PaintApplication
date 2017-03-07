@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using PaintApplication.Model;
 using PaintApplication.Presenter;
 using PaintApplication.View;
@@ -16,7 +11,7 @@ namespace PaintApplication
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<PaintPresenter>();
-            builder.RegisterType<PaintForm>();
+            builder.RegisterType<PaintForm>().As<IPaintForm>();
             builder.RegisterType<PaintTool>();
             builder.RegisterType<App>().As<IApp>();
 

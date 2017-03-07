@@ -1,28 +1,34 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using PaintApplication.Model;
-using PaintApplication.Model.FlipItems;
-using PaintApplication.Model.RotateItems;
-using PaintApplication.Model.Utility;
 
 namespace PaintApplication.View
 {
-    public partial class PaintForm : Form
+    public partial class PaintForm : Form, IPaintForm
     {
-        public event Action<Point> StartPaintAction;
-        public event Action<Point> StopPaintAction;
-        public event Action <PaintToolType>ToolAction;
-        public event Action<Point> MovePaintAction;
-        public event Action<Color> ColorAction;
-        public event Action<int> SizePenAction;
-        public event Action<int, int> SizeChangeAction;
+        public event Action StartPaintAction;
+        public event Action StopPaintAction;
+        public event Action ToolAction;
+        public event Action MovePaintAction;
+        public event Action ColorAction;
+        public event Action SizePenAction;
+        public event Action SizeChangeAction;
         public event Action SaveAction;
-        public event Action<string> LoadAction;
-        public event Action<RotateTypes> RotateAction;
-        public event Action<FlipType> FlipAction;
+        public event Action LoadAction;
+        public event Action RotateAction;
+        public event Action FlipAction;
         public event Action UndoAction;
-        public event Action<BrushType> BrushAction;
+        public event Action BrushAction;
+        public Point MouseLocation { get; set; }
+        public string ToolType { get; set; }
+        public Color ColorBrush { get; set; }
+        public int PenSize { get; set; }
+        public int CanvasSizeWidth { get; set; }
+        public int CanvasSizeHeight { get; set; }
+        public string FileLocationName { get; set; }
+        public string RotateType { get; set; }
+        public string FlipType { get; set; }
+        public string BrushType { get; set; }
 
         public PaintForm()
         {
@@ -42,17 +48,20 @@ namespace PaintApplication.View
 
         private void canvas_MovePaint(MouseEventArgs e)
         {
-            MovePaintAction?.Invoke(e.Location);
+            MouseLocation = e.Location;
+            MovePaintAction?.Invoke();
         }
 
         private void canvas_StartPaint(MouseEventArgs e)
         {
-            StartPaintAction?.Invoke(e.Location);
+            MouseLocation = e.Location;
+            StartPaintAction?.Invoke();
         }
 
         private void canvas_StopPaint(MouseEventArgs e)
         {
-            StopPaintAction?.Invoke(e.Location);
+            MouseLocation = e.Location;
+            StopPaintAction?.Invoke();
         }
 
         public void UpdateCanvas(Image image)
@@ -62,38 +71,42 @@ namespace PaintApplication.View
 
         private void btnTool_Click(object sender, EventArgs e)
         {
-            PaintToolType paintToolType = PaintToolType.None;
             Button button = sender as Button;
-            paintToolType = EnumUtil.ParseEnum<PaintToolType>(button?.Text);
+            ToolType = button?.Text;
             sizeTrackBar.Enabled = true;
-            ToolAction?.Invoke(paintToolType);
+            ToolAction?.Invoke();
         }
         private void btnBrush_Click(object sender, EventArgs e)
         {
-            BrushType brushType = BrushType.CrossBrush;
             Button button = sender as Button;
-            brushType = EnumUtil.ParseEnum<BrushType>(button?.Name);
+            BrushType = button?.Name;
+            ToolType = "Brush";
             sizeTrackBar.Enabled = false;
-            BrushAction?.Invoke(brushType);
+            BrushAction?.Invoke();
+            ToolAction?.Invoke();
         }
 
         private void pbColor_Click(object sender, EventArgs e)
         { 
             if (colorDialog.ShowDialog()== DialogResult.OK)
             {
-                pbColor.BackColor = colorDialog.Color;
-                ColorAction?.Invoke(colorDialog.Color);
+                ColorBrush = colorDialog.Color;
+                pbColor.BackColor = ColorBrush;
+                ColorAction?.Invoke();
             }
         }
 
         private void sizeTrackBar_ValueChanged(object sender, EventArgs e)
         {
-            SizePenAction?.Invoke(sizeTrackBar.Value);
+            PenSize = sizeTrackBar.Value;
+            SizePenAction?.Invoke();
         }
 
         private void canvasControl_SizeChanged()
         {
-            SizeChangeAction?.Invoke(canvasControl.Width, canvasControl.Height);
+            CanvasSizeWidth = canvasControl.Width;
+            CanvasSizeHeight = canvasControl.Height;
+            SizeChangeAction?.Invoke();
         }
         
         private void loadMenuItem_Click(object sender, EventArgs e)
@@ -101,7 +114,8 @@ namespace PaintApplication.View
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                LoadAction?.Invoke(openFileDialog.FileName);
+                FileLocationName = openFileDialog.FileName;
+                LoadAction?.Invoke();
             }
         }
 
@@ -111,17 +125,15 @@ namespace PaintApplication.View
         }
         private void btnRotate_Click(object sender, EventArgs e)
         {
-            RotateTypes rotateTypes = RotateTypes.None;
             ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
-            rotateTypes = EnumUtil.ParseEnum<RotateTypes>(toolStripMenuItem?.Name);
-            RotateAction?.Invoke(rotateTypes);
+            RotateType = toolStripMenuItem?.Name;
+            RotateAction?.Invoke();
         }
         private void btnFlip_Click(object sender, EventArgs e)
         {
-            FlipType flipType = FlipType.None;
             ToolStripMenuItem toolStripMenuItem = sender as ToolStripMenuItem;
-            flipType = EnumUtil.ParseEnum<FlipType>(toolStripMenuItem?.Name);
-            FlipAction?.Invoke(flipType);
+            FlipType = toolStripMenuItem?.Name;
+            FlipAction?.Invoke();
         }
 
         private void btnUndo_Click(object sender, EventArgs e)

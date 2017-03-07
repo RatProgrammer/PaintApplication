@@ -12,29 +12,32 @@ namespace PaintApplication.View
 {
     interface IPaintForm
     {
-        event Action<Point> StartPaintAction;
-        event Action<Point> StopPaintAction;
-        event Action<PaintToolType> ToolAction;
-        event Action<Point> MovePaintAction;
-        event Action<Color> ColorAction;
-        event Action<int> SizePenAction;
-        event Action<int, int> SizeChangeAction;
+        event Action StartPaintAction;
+        event Action StopPaintAction;
+        event Action ToolAction;
+        event Action MovePaintAction;
+        event Action ColorAction;
+        event Action SizePenAction;
+        event Action SizeChangeAction;
         event Action SaveAction;
-        event Action<string> LoadAction;
-        event Action<RotateTypes> RotateAction;
-        event Action<FlipType> FlipAction;
+        event Action LoadAction;
+        event Action RotateAction;
+        event Action FlipAction;
         event Action UndoAction;
-        event Action<BrushType> BrushAction;
+        event Action BrushAction;
 
-        Point MousePosition { get; set; }
-        string Toolaction { get; set; }
-        Color Color { get; set; }
+        Point MouseLocation { get; set; }
+        string ToolType { get; set; }
+        Color ColorBrush { get; set; }
         int PenSize { get; set; }
-        int CanvasSizeX { get; set; }
-        int CanvasSizeY { get; set; }
-        string LocationToLoad { get; set; }
+        int CanvasSizeWidth { get; set; }
+        int CanvasSizeHeight { get; set; }
+        string FileLocationName { get; set; }
         string RotateType { get; set; }
         string FlipType { get; set; }
         string BrushType { get; set; }
+
+
+        void UpdateCanvas(Image image);
     }
 }
