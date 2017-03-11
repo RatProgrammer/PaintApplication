@@ -2,7 +2,9 @@
 
 namespace PaintApplication.Model.MementoItems
 {
-    class Originator
+    public delegate Originator OriginatorFactory(Bitmap currentBitmap, int width, int height);
+
+    public class Originator
     {
         private Bitmap _currentBitmap;
         private int _width;

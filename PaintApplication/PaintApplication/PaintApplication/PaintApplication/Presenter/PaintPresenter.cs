@@ -21,9 +21,10 @@ namespace PaintApplication.Presenter
         private readonly SaveControler _saveControler;
         private readonly BitmapLoader _bitmapLoader;
         private Originator _originator;
+        private OriginatorFactory _originatorFactory;
         private readonly Caretaker _caretaker;
 
-        public PaintPresenter(IPaintForm paintForm, PaintTool paintTool, CanvasFactory canvasFactory)
+        public PaintPresenter(IPaintForm paintForm, PaintTool paintTool, CanvasFactory canvasFactory, SaveControler saveControler, BitmapLoader bitmapLoader, Caretaker caretaker, OriginatorFactory originatorFactory)
         {
             _paintForm = paintForm;
             _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
@@ -42,12 +43,13 @@ namespace PaintApplication.Presenter
             _paintForm.BrushAction += ExecuteBrushAction;
             
             _paintTool = paintTool;
-            _saveControler = new SaveControler();
-            _bitmapLoader = new BitmapLoader();
+            _saveControler = saveControler;
+            _bitmapLoader = bitmapLoader;
             _currentCanvas = canvasFactory(400, 400);
             _temporaryCanvas = canvasFactory(400, 400);
-            _caretaker = new Caretaker();
-            _originator = new Originator(_currentCanvas.Bitmap, _currentCanvas.Width, _currentCanvas.Height);
+            _caretaker = caretaker;
+            _originator = originatorFactory(_currentCanvas.Bitmap, _currentCanvas.Width, _currentCanvas.Height);
+            _originatorFactory = originatorFactory;
         }
 
         private void ExecuteToolAction()
@@ -128,7 +130,7 @@ namespace PaintApplication.Presenter
         }
         public void CreateSnapshot()
         {
-            _originator = new Originator(_currentCanvas.Bitmap, _currentCanvas.Width, _currentCanvas.Height);
+            _originator = _originatorFactory(_currentCanvas.Bitmap, _currentCanvas.Width, _currentCanvas.Height);
             _caretaker.SaveMemento(_originator);
         }
         public void RunApp()

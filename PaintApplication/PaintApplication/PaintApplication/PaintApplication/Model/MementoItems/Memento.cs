@@ -2,7 +2,7 @@
 
 namespace PaintApplication.Model.MementoItems
 {
-    class Memento
+    public class Memento
     {
         private readonly Bitmap _currentBitmap;
         private readonly int _width;

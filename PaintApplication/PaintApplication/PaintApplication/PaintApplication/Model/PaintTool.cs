@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace PaintApplication.Model
 {
@@ -7,16 +8,15 @@ namespace PaintApplication.Model
         public Color Color { get; private set; }
         public Pen Pen { get; private set; }
         public Brush Brush { get; private set; }
-        private float _penSize;
+        private float _penSize = 1;
         private BrushType _brushType;
         private readonly BrushFactory _brushFactory;
 
-        public PaintTool()
+        public PaintTool(Func<Color, float, Pen> pen, BrushFactory brushFactory)
         {
-            _penSize = 1;
             Color = Color.Black;
-            Pen=new Pen(Color,_penSize);
-            _brushFactory = new BrushFactory(); 
+            Pen = pen(Color,_penSize);
+            _brushFactory = brushFactory; 
         }
         public void SetColor(Color color)
         {

@@ -12,7 +12,7 @@ namespace PaintApplication.Model
             switch (brushType)
             {
                 case BrushType.BackwardDiagonal:
-                    HatchBrush backwardDiagonalBrush = new HatchBrush(HatchStyle.BackwardDiagonal,color, backColor);
+                    HatchBrush backwardDiagonalBrush = new HatchBrush(HatchStyle.BackwardDiagonal, color, backColor);
                     return backwardDiagonalBrush;
                 case BrushType.DiagonalBrick:
                     HatchBrush diagonalBrickBrush = new HatchBrush(HatchStyle.DiagonalBrick, color, backColor);
@@ -30,22 +30,22 @@ namespace PaintApplication.Model
                     HatchBrush largeCheckerBoardBrush = new HatchBrush(HatchStyle.LargeCheckerBoard, color, backColor);
                     return largeCheckerBoardBrush;
                 case BrushType.Wave:
-                    HatchBrush waveBrush = new HatchBrush(HatchStyle.Wave, color, backColor);
+                    HatchBrush waveBrush =new HatchBrush(HatchStyle.Wave, color, backColor);
                     return waveBrush;
                 case BrushType.Sphere:
-                    HatchBrush sphereBrush = new HatchBrush(HatchStyle.Sphere, color, backColor);
+                    HatchBrush sphereBrush =new HatchBrush(HatchStyle.Sphere, color, backColor);
                     return sphereBrush;
                 case BrushType.SolidDiamond:
-                    HatchBrush solidDiamondBrush = new HatchBrush(HatchStyle.SolidDiamond, color, backColor);
+                    HatchBrush solidDiamondBrush =new HatchBrush(HatchStyle.SolidDiamond, color, backColor);
                     return solidDiamondBrush;
                 case BrushType.Shingle:
-                    HatchBrush shingleBrush = new HatchBrush(HatchStyle.Shingle, color, backColor);
+                    HatchBrush shingleBrush =new HatchBrush(HatchStyle.Shingle, color, backColor);
                     return shingleBrush;
                 case BrushType.DarkHorizontal:
-                    HatchBrush darkHorizontalBrush = new HatchBrush(HatchStyle.DarkHorizontal, color, backColor);
+                    HatchBrush darkHorizontalBrush =new HatchBrush(HatchStyle.DarkHorizontal, color, backColor);
                     return darkHorizontalBrush;
                 case BrushType.LargeConfetti:
-                    HatchBrush largeConfettiBrush = new HatchBrush(HatchStyle.LargeConfetti, color, backColor);
+                    HatchBrush largeConfettiBrush =new HatchBrush(HatchStyle.LargeConfetti, color, backColor);
                     return largeConfettiBrush;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(brushType), brushType, null);
