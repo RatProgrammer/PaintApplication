@@ -1,4 +1,6 @@
-﻿using Autofac;
+﻿using System.Drawing;
+using System.Windows.Forms;
+using Autofac;
 using PaintApplication.Model;
 using PaintApplication.Presenter;
 using PaintApplication.View;
@@ -11,9 +13,13 @@ namespace PaintApplication
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<PaintPresenter>();
+            builder.RegisterType<Resizer>();
             builder.RegisterType<PaintForm>().As<IPaintForm>();
             builder.RegisterType<PaintTool>();
             builder.RegisterType<App>().As<IApp>();
+            builder.RegisterType<OpenFileDialog>();
+            builder.RegisterType<Canvas>();
+            builder.RegisterType<Bitmap>().SingleInstance();
 
             var container = builder.Build();
             return container.Resolve<IApp>();

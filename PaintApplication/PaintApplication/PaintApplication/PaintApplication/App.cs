@@ -4,7 +4,7 @@ namespace PaintApplication
 {
     class App : IApp
     {
-        private PaintPresenter _paintPresenter;
+        private readonly PaintPresenter _paintPresenter;
 
         public App(PaintPresenter paintPresenter)
         {

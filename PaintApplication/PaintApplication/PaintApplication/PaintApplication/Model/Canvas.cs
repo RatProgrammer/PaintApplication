@@ -5,7 +5,9 @@ using PaintApplication.Model.RotateItems;
 
 namespace PaintApplication.Model
 {
-    class Canvas : IDisposable
+    public delegate Canvas CanvasFactory(int height, int width);
+
+    public class Canvas : IDisposable
     {
         private Bitmap _bitmap;
         public int Height { get; private set; }
@@ -22,9 +24,8 @@ namespace PaintApplication.Model
 
         public Canvas(Canvas canvas)
         {
-            _bitmap = new Bitmap(canvas.Bitmap);
+            _bitmap = (Bitmap)canvas.Bitmap.Clone();
         }
-
         
         private void UpdateSize(int width, int height)
         {

@@ -29,13 +29,15 @@ namespace PaintApplication.View
         public string RotateType { get; set; }
         public string FlipType { get; set; }
         public string BrushType { get; set; }
+        private readonly OpenFileDialog _openFileDialog;
 
-        public PaintForm()
+        public PaintForm(Func<CanvasControl ,Resizer> resizerFactory, OpenFileDialog openFileDialog)
         {
             InitializeComponent();
-            Resizer resizer = new Resizer(canvasControl);
-            resizer.SizeIsChanged += canvasControl_SizeChanged;
             InitCanvas();
+            _openFileDialog = openFileDialog;
+            var resizer = resizerFactory(canvasControl);
+            resizer.SizeIsChanged += canvasControl_SizeChanged;
         }
 
 
@@ -80,7 +82,6 @@ namespace PaintApplication.View
         {
             Button button = sender as Button;
             BrushType = button?.Name;
-            ToolType = "Brush";
             sizeTrackBar.Enabled = false;
             BrushAction?.Invoke();
             ToolAction?.Invoke();
@@ -111,10 +112,9 @@ namespace PaintApplication.View
         
         private void loadMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (_openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                FileLocationName = openFileDialog.FileName;
+                FileLocationName = _openFileDialog.FileName;
                 LoadAction?.Invoke();
             }
         }

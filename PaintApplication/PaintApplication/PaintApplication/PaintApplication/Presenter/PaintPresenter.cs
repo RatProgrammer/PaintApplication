@@ -23,7 +23,7 @@ namespace PaintApplication.Presenter
         private Originator _originator;
         private readonly Caretaker _caretaker;
 
-        public PaintPresenter(IPaintForm paintForm, PaintTool paintTool)
+        public PaintPresenter(IPaintForm paintForm, PaintTool paintTool, CanvasFactory canvasFactory)
         {
             _paintForm = paintForm;
             _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
@@ -44,8 +44,8 @@ namespace PaintApplication.Presenter
             _paintTool = paintTool;
             _saveControler = new SaveControler();
             _bitmapLoader = new BitmapLoader();
-            _currentCanvas = new Canvas(400, 400);
-            _temporaryCanvas = new Canvas(400, 400);
+            _currentCanvas = canvasFactory(400, 400);
+            _temporaryCanvas = canvasFactory(400, 400);
             _caretaker = new Caretaker();
             _originator = new Originator(_currentCanvas.Bitmap, _currentCanvas.Width, _currentCanvas.Height);
         }
@@ -59,6 +59,7 @@ namespace PaintApplication.Presenter
         private void ExecuteBrushAction()
         {
             var brushType = EnumUtil.ParseEnum<BrushType>(_paintForm.BrushType);
+            _paintForm.ToolType = PaintToolType.Brush.ToString();
             _paintTool.SetBrush(brushType);
         }
         private void ExecuteColorAction()

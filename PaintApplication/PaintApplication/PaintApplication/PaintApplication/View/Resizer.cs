@@ -14,7 +14,7 @@ namespace PaintApplication.View
         }
 
 
-        public Resizer(PictureBox theControl)
+        public Resizer(CanvasControl theControl)
         {
             controltobeResized = theControl;
             InitializeComponent();

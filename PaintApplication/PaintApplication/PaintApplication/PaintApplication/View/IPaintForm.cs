@@ -37,7 +37,6 @@ namespace PaintApplication.View
         string FlipType { get; set; }
         string BrushType { get; set; }
 
-
         void UpdateCanvas(Image image);
     }
 }
