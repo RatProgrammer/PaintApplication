@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using PaintApplication.Model;
 
 namespace PaintApplication.View
 {
@@ -38,6 +39,7 @@ namespace PaintApplication.View
             _openFileDialog = openFileDialog;
             var resizer = resizerFactory(canvasControl);
             resizer.SizeIsChanged += canvasControl_SizeChanged;
+            ToolType = btnPencil.Text;
         }
 
 

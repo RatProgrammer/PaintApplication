@@ -54,7 +54,7 @@ namespace PaintApplication.View
             this.VerticalMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnUndo = new System.Windows.Forms.Button();
             this.backwardDiagonal = new System.Windows.Forms.Button();
-            this.crossBrush = new System.Windows.Forms.Button();
+            this.cross = new System.Windows.Forms.Button();
             this.diagonalBrick = new System.Windows.Forms.Button();
             this.gbBrushes = new System.Windows.Forms.GroupBox();
             this.largeConfetti = new System.Windows.Forms.Button();
@@ -69,8 +69,8 @@ namespace PaintApplication.View
             this.panel1 = new System.Windows.Forms.Panel();
             this.canvasControl = new PaintApplication.View.CanvasControl();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lbColor = new System.Windows.Forms.Label();
             this.lbPencilSize = new System.Windows.Forms.Label();
+            this.lbColor = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).BeginInit();
             this.menu.SuspendLayout();
@@ -283,15 +283,15 @@ namespace PaintApplication.View
             this.backwardDiagonal.UseVisualStyleBackColor = true;
             this.backwardDiagonal.Click += new System.EventHandler(this.btnBrush_Click);
             // 
-            // crossBrush
+            // cross
             // 
-            this.crossBrush.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("crossBrush.BackgroundImage")));
-            this.crossBrush.Location = new System.Drawing.Point(48, 19);
-            this.crossBrush.Name = "crossBrush";
-            this.crossBrush.Size = new System.Drawing.Size(23, 23);
-            this.crossBrush.TabIndex = 15;
-            this.crossBrush.UseVisualStyleBackColor = true;
-            this.crossBrush.Click += new System.EventHandler(this.btnBrush_Click);
+            this.cross.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cross.BackgroundImage")));
+            this.cross.Location = new System.Drawing.Point(48, 19);
+            this.cross.Name = "cross";
+            this.cross.Size = new System.Drawing.Size(23, 23);
+            this.cross.TabIndex = 15;
+            this.cross.UseVisualStyleBackColor = true;
+            this.cross.Click += new System.EventHandler(this.btnBrush_Click);
             // 
             // diagonalBrick
             // 
@@ -316,7 +316,7 @@ namespace PaintApplication.View
             this.gbBrushes.Controls.Add(this.smallConfetti);
             this.gbBrushes.Controls.Add(this.backwardDiagonal);
             this.gbBrushes.Controls.Add(this.diagonalBrick);
-            this.gbBrushes.Controls.Add(this.crossBrush);
+            this.gbBrushes.Controls.Add(this.cross);
             this.gbBrushes.Location = new System.Drawing.Point(3, 58);
             this.gbBrushes.Name = "gbBrushes";
             this.gbBrushes.Size = new System.Drawing.Size(372, 57);
@@ -453,15 +453,6 @@ namespace PaintApplication.View
             this.panel2.Size = new System.Drawing.Size(1344, 114);
             this.panel2.TabIndex = 19;
             // 
-            // lbColor
-            // 
-            this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(448, 58);
-            this.lbColor.Name = "lbColor";
-            this.lbColor.Size = new System.Drawing.Size(31, 13);
-            this.lbColor.TabIndex = 18;
-            this.lbColor.Text = "Color";
-            // 
             // lbPencilSize
             // 
             this.lbPencilSize.AutoSize = true;
@@ -470,6 +461,15 @@ namespace PaintApplication.View
             this.lbPencilSize.Size = new System.Drawing.Size(59, 13);
             this.lbPencilSize.TabIndex = 19;
             this.lbPencilSize.Text = "Pencil Size";
+            // 
+            // lbColor
+            // 
+            this.lbColor.AutoSize = true;
+            this.lbColor.Location = new System.Drawing.Point(448, 58);
+            this.lbColor.Name = "lbColor";
+            this.lbColor.Size = new System.Drawing.Size(31, 13);
+            this.lbColor.TabIndex = 18;
+            this.lbColor.Text = "Color";
             // 
             // PaintForm
             // 
@@ -520,7 +520,7 @@ namespace PaintApplication.View
         private ToolStripMenuItem VerticalMenuItem;
         private Button btnUndo;
         private Button backwardDiagonal;
-        private Button crossBrush;
+        private Button cross;
         private Button diagonalBrick;
         private GroupBox gbBrushes;
         private Button smallConfetti;

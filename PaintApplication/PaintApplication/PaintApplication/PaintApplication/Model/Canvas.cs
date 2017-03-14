@@ -71,7 +71,7 @@ namespace PaintApplication.Model
 
         public void LoadBitmap(Bitmap bitmap)
         {
-            _bitmap = new Bitmap(bitmap);
+            _bitmap = (Bitmap)bitmap.Clone();
             UpdateSize(bitmap.Width, bitmap.Height);
         }
     }

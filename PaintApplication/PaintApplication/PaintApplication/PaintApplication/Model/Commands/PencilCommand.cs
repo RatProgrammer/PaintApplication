@@ -1,35 +1,20 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using PaintApplication.Model.Utility;
 
 namespace PaintApplication.Model.Commands
 {
     class PencilCommand : IPaintCommand
     {
-        private Point _previousPoint;
-        private Graphics _graphics;
+        private readonly List<Point> _points = new List<Point>();
 
-        public event Action SnapshotEvent;
-
-        public void ExecuteStart(ref Canvas temporary, ref Canvas currentCanvas, PaintTool paintTool, Point point)
+        public void Execute(ref Canvas canvas, PaintTool paintTool)
         {
-            SnapshotEvent?.Invoke();
-            _previousPoint = LineUtil.SetFirstPoint(point, currentCanvas.Bitmap, paintTool);
-        }
-
-        public void ExecuteStop(ref Canvas temporary, ref Canvas current, PaintTool paintTool, Point point)
-        {
-            _previousPoint = new Point(0, 0);
-        }
-
-        public void ExecuteMove(ref Canvas temporary, ref Canvas current, PaintTool paintTool, Point point)
-        {
-            Point startPoint = point;
-            using (_graphics = Graphics.FromImage(current.Bitmap))
+            using (var graphics = Graphics.FromImage(canvas.Bitmap))
             {
-                _graphics.DrawLine(paintTool.Pen, startPoint, _previousPoint);
+                _points.Insert(0, paintTool.StartPoint);
+                _points.Add(paintTool.EndPoint);
+                graphics.DrawLines(paintTool.Pen, _points.ToArray());
             }
-            _previousPoint = point;
         }
     }
 }

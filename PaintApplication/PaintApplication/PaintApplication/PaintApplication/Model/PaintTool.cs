@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace PaintApplication.Model
 {
     internal class PaintTool
     {
+        public Point StartPoint { get; private set; }
+        public Point EndPoint { get; private set; }
         public Color Color { get; private set; }
         public Pen Pen { get; private set; }
         public Brush Brush { get; private set; }
         private float _penSize = 1;
-        private BrushType _brushType;
+        private HatchStyle _hatchStyle;
         private readonly BrushFactory _brushFactory;
 
         public PaintTool(Func<Color, float, Pen> pen, BrushFactory brushFactory)
@@ -22,7 +25,7 @@ namespace PaintApplication.Model
         {
             Color = color;
             Pen.Color = color;
-            Brush = _brushFactory.CreateBrush(_brushType, color);
+            Brush = _brushFactory.CreateBrush(_hatchStyle, color);
         }
 
         public void SetPenSize(int penSize)
@@ -31,15 +34,25 @@ namespace PaintApplication.Model
             Pen.Width = penSize;
         }
 
-        public void SetBrush(BrushType brushType)
+        public void SetBrush(HatchStyle hatchStyle)
         {
-            Brush = _brushFactory.CreateBrush(brushType, Color);
-            _brushType = brushType;
+            Brush = _brushFactory.CreateBrush(hatchStyle, Color);
+            _hatchStyle = hatchStyle;
         }
 
         public void SetPen(Pen pen)
         {
             Pen = pen;
+        }
+
+        public void SetStartPoint(Point point)
+        {
+            StartPoint = point;
+        }
+
+        public void SetEndPoint(Point point)
+        {
+            EndPoint = point;
         }
     }
 }

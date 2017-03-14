@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using PaintApplication.Model;
 using PaintApplication.Model.Commands;
@@ -27,7 +26,7 @@ namespace PaintApplication.Presenter
         public PaintPresenter(IPaintForm paintForm, PaintTool paintTool, CanvasFactory canvasFactory, SaveControler saveControler, BitmapLoader bitmapLoader, Caretaker caretaker, OriginatorFactory originatorFactory)
         {
             _paintForm = paintForm;
-            _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.None);
+            _paintCommand = PaintCommandFactory.GetPaintCommand(PaintToolType.Pencil);
             _paintForm.StartPaintAction += ExecuteStartPaintAction;
             _paintForm.StopPaintAction += ExecuteStopPaintAction;
             _paintForm.ToolAction += ExecuteToolAction;
@@ -54,13 +53,12 @@ namespace PaintApplication.Presenter
 
         private void ExecuteToolAction()
         {
-            var paintTool = EnumUtil.ParseEnum<PaintToolType>(_paintForm.ToolType);
-            _paintCommand = PaintCommandFactory.GetPaintCommand(paintTool);
-            _paintCommand.SnapshotEvent += CreateSnapshot;
+            var toolType = EnumUtil.ParseEnum<PaintToolType>(_paintForm.ToolType);
+            _paintCommand = PaintCommandFactory.GetPaintCommand(toolType);
         }
         private void ExecuteBrushAction()
         {
-            var brushType = EnumUtil.ParseEnum<BrushType>(_paintForm.BrushType);
+            var brushType = EnumUtil.ParseEnum<HatchStyle>(_paintForm.BrushType);
             _paintForm.ToolType = PaintToolType.Brush.ToString();
             _paintTool.SetBrush(brushType);
         }
@@ -80,21 +78,29 @@ namespace PaintApplication.Presenter
         }
         private void ExecuteStartPaintAction()
         {
-            _paintCommand.ExecuteStart(ref _temporaryCanvas, ref _currentCanvas, _paintTool, _paintForm.MouseLocation);
-            _paintForm.UpdateCanvas(_currentCanvas.Bitmap);
+            _temporaryCanvas.LoadBitmap(_currentCanvas.Bitmap);
+            _paintTool.SetStartPoint(_paintForm.MouseLocation);
+            _paintTool.SetEndPoint(_paintForm.MouseLocation);
+            _paintCommand.Execute(ref _temporaryCanvas, _paintTool);
+            _paintForm.UpdateCanvas(_temporaryCanvas.Bitmap);
         }
         private void ExecuteMovePaintAction()
         {
+            _paintTool.SetEndPoint(_paintForm.MouseLocation);
             using (_temporaryCanvas = new Canvas(_currentCanvas))
             {
-                _paintCommand.ExecuteMove(ref _temporaryCanvas, ref _currentCanvas, _paintTool, _paintForm.MouseLocation);
+                _paintCommand.Execute(ref _temporaryCanvas, _paintTool);
                 _paintForm.UpdateCanvas(_temporaryCanvas.Bitmap);
             }
         }
         private void ExecuteStopPaintAction()
         {
-            _paintCommand.ExecuteStop(ref _temporaryCanvas, ref _currentCanvas, _paintTool, _paintForm.MouseLocation);
+            _paintTool.SetEndPoint(_paintForm.MouseLocation);
+            _paintTool.SetEndPoint(_paintForm.MouseLocation);
+            _paintCommand.Execute(ref _currentCanvas, _paintTool);
             _paintForm.UpdateCanvas(_currentCanvas.Bitmap);
+            ExecuteToolAction();
+            CreateSnapshot();
         }
         private void ExecuteRotateAction()
         {

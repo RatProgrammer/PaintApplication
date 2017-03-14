@@ -8,7 +8,6 @@
         Circle,
         Line,
         Rectangle,
-        Brush,
-        None
+        Brush
     }
 }

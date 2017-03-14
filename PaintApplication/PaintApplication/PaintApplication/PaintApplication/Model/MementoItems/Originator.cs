@@ -24,14 +24,14 @@ namespace PaintApplication.Model.MementoItems
 
         public void SetMemento(Memento memento)
         {
-            _currentBitmap = new Bitmap(memento.GetBitmap());
+            _currentBitmap = (Bitmap)(memento.GetBitmap()).Clone();
             _width = memento.GetWidth();
             _height = memento.GetHeight();
         }
 
         public Bitmap GetBitmap()
         {
-            return new Bitmap(_currentBitmap);
+            return (Bitmap)(_currentBitmap).Clone();
         }
     }
 }

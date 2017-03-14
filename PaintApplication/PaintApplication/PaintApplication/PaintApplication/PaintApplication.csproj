@@ -56,14 +56,12 @@
     <Compile Include="Model\BrushFactory.cs" />
     <Compile Include="Model\Canvas.cs" />
     <Compile Include="Model\Commands\BrushCommand.cs" />
-    <Compile Include="Model\BrushType.cs" />
     <Compile Include="Model\Commands\BucketCommand.cs" />
     <Compile Include="Model\Commands\CircleCommand.cs" />
     <Compile Include="Model\Commands\LineCommand.cs" />
     <Compile Include="Model\Commands\PencilCommand.cs" />
     <Compile Include="Model\Commands\RectagleCommand.cs" />
     <Compile Include="Model\Commands\RubberCommand.cs" />
-    <Compile Include="Model\Commands\NullObjectCommand.cs" />
     <Compile Include="Model\Utility\LineUtil.cs" />
     <Compile Include="Model\Utility\RectangleUtil.cs" />
     <Compile Include="Model\FlipItems\FlipControler.cs" />

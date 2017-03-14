@@ -8,20 +8,9 @@ namespace PaintApplication.Model.Commands
 {
     class BucketCommand : IPaintCommand
     {
-        public event Action SnapshotEvent;
-
-        public void ExecuteStart(ref Canvas temporary, ref Canvas currentCanvas, PaintTool paintTool, Point point)
+        public void Execute(ref Canvas canvas, PaintTool paintTool)
         {
-            SnapshotEvent?.Invoke();
-            FloodFill(currentCanvas.Bitmap, point.X, point.Y, paintTool.Color);
-        }
-
-        public void ExecuteStop(ref Canvas temporary, ref Canvas current, PaintTool paintTool, Point point)
-        {
-        }
-
-        public void ExecuteMove(ref Canvas temporary, ref Canvas current, PaintTool paintTool, Point point)
-        {
+            FloodFill(canvas.Bitmap, paintTool.StartPoint.X, paintTool.StartPoint.Y, paintTool.Color);
         }
 
         private void  FloodFill(Bitmap bitmap, int x, int y, Color color)

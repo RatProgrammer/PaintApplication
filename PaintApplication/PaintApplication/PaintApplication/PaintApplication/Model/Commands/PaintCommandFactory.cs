@@ -1,4 +1,6 @@
-﻿namespace PaintApplication.Model.Commands
+﻿using System;
+
+namespace PaintApplication.Model.Commands
 {
     class PaintCommandFactory
     {
@@ -21,7 +23,7 @@
                 case PaintToolType.Brush:
                     return new BrushCommand();
                 default:
-                    return new NullObjectCommand();
+                    throw new ArgumentNullException(nameof(paintToolType));
             }
         }
     }
