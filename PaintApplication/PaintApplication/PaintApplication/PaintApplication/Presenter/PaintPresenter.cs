@@ -78,6 +78,7 @@ namespace PaintApplication.Presenter
         }
         private void ExecuteStartPaintAction()
         {
+            CreateSnapshot();
             _temporaryCanvas.LoadBitmap(_currentCanvas.Bitmap);
             _paintTool.SetStartPoint(_paintForm.MouseLocation);
             _paintTool.SetEndPoint(_paintForm.MouseLocation);
@@ -100,7 +101,6 @@ namespace PaintApplication.Presenter
             _paintCommand.Execute(ref _currentCanvas, _paintTool);
             _paintForm.UpdateCanvas(_currentCanvas.Bitmap);
             ExecuteToolAction();
-            CreateSnapshot();
         }
         private void ExecuteRotateAction()
         {

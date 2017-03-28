@@ -67,23 +67,23 @@ namespace PaintApplication.View
             this.zigZag = new System.Windows.Forms.Button();
             this.smallConfetti = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.canvasControl = new PaintApplication.View.CanvasControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbPencilSize = new System.Windows.Forms.Label();
             this.lbColor = new System.Windows.Forms.Label();
+            this.canvasControl = new PaintApplication.View.CanvasControl();
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).BeginInit();
             this.menu.SuspendLayout();
             this.gbBrushes.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPencil
             // 
             this.btnPencil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPencil.BackgroundImage")));
-            this.btnPencil.Location = new System.Drawing.Point(3, 17);
+            this.btnPencil.Location = new System.Drawing.Point(3, 12);
             this.btnPencil.Name = "btnPencil";
             this.btnPencil.Size = new System.Drawing.Size(68, 38);
             this.btnPencil.TabIndex = 1;
@@ -95,7 +95,7 @@ namespace PaintApplication.View
             // btnRubber
             // 
             this.btnRubber.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRubber.BackgroundImage")));
-            this.btnRubber.Location = new System.Drawing.Point(77, 17);
+            this.btnRubber.Location = new System.Drawing.Point(67, 12);
             this.btnRubber.Name = "btnRubber";
             this.btnRubber.Size = new System.Drawing.Size(68, 38);
             this.btnRubber.TabIndex = 4;
@@ -107,7 +107,7 @@ namespace PaintApplication.View
             // btnBucket
             // 
             this.btnBucket.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBucket.BackgroundImage")));
-            this.btnBucket.Location = new System.Drawing.Point(151, 17);
+            this.btnBucket.Location = new System.Drawing.Point(132, 12);
             this.btnBucket.Name = "btnBucket";
             this.btnBucket.Size = new System.Drawing.Size(68, 38);
             this.btnBucket.TabIndex = 5;
@@ -120,7 +120,7 @@ namespace PaintApplication.View
             // 
             this.btnCircle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCircle.BackgroundImage")));
             this.btnCircle.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCircle.Location = new System.Drawing.Point(225, 17);
+            this.btnCircle.Location = new System.Drawing.Point(198, 12);
             this.btnCircle.Name = "btnCircle";
             this.btnCircle.Size = new System.Drawing.Size(68, 38);
             this.btnCircle.TabIndex = 6;
@@ -132,7 +132,7 @@ namespace PaintApplication.View
             // btnRectangle
             // 
             this.btnRectangle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRectangle.BackgroundImage")));
-            this.btnRectangle.Location = new System.Drawing.Point(299, 17);
+            this.btnRectangle.Location = new System.Drawing.Point(264, 12);
             this.btnRectangle.Name = "btnRectangle";
             this.btnRectangle.Size = new System.Drawing.Size(68, 38);
             this.btnRectangle.TabIndex = 7;
@@ -144,7 +144,7 @@ namespace PaintApplication.View
             // btnLine
             // 
             this.btnLine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLine.BackgroundImage")));
-            this.btnLine.Location = new System.Drawing.Point(373, 17);
+            this.btnLine.Location = new System.Drawing.Point(330, 12);
             this.btnLine.Name = "btnLine";
             this.btnLine.Size = new System.Drawing.Size(68, 38);
             this.btnLine.TabIndex = 8;
@@ -156,7 +156,7 @@ namespace PaintApplication.View
             // pbColor
             // 
             this.pbColor.BackColor = System.Drawing.Color.Black;
-            this.pbColor.Location = new System.Drawing.Point(447, 18);
+            this.pbColor.Location = new System.Drawing.Point(122, 63);
             this.pbColor.Name = "pbColor";
             this.pbColor.Size = new System.Drawing.Size(41, 37);
             this.pbColor.TabIndex = 9;
@@ -165,7 +165,7 @@ namespace PaintApplication.View
             // 
             // sizeTrackBar
             // 
-            this.sizeTrackBar.Location = new System.Drawing.Point(494, 18);
+            this.sizeTrackBar.Location = new System.Drawing.Point(12, 63);
             this.sizeTrackBar.Maximum = 25;
             this.sizeTrackBar.Minimum = 1;
             this.sizeTrackBar.Name = "sizeTrackBar";
@@ -182,7 +182,7 @@ namespace PaintApplication.View
             this.Vertical});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(1344, 24);
+            this.menu.Size = new System.Drawing.Size(784, 24);
             this.menu.TabIndex = 12;
             this.menu.Text = "menu";
             // 
@@ -265,7 +265,7 @@ namespace PaintApplication.View
             // 
             // btnUndo
             // 
-            this.btnUndo.Location = new System.Drawing.Point(604, 28);
+            this.btnUndo.Location = new System.Drawing.Point(697, 22);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
             this.btnUndo.TabIndex = 13;
@@ -276,7 +276,7 @@ namespace PaintApplication.View
             // backwardDiagonal
             // 
             this.backwardDiagonal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backwardDiagonal.BackgroundImage")));
-            this.backwardDiagonal.Location = new System.Drawing.Point(19, 19);
+            this.backwardDiagonal.Location = new System.Drawing.Point(6, 19);
             this.backwardDiagonal.Name = "backwardDiagonal";
             this.backwardDiagonal.Size = new System.Drawing.Size(23, 23);
             this.backwardDiagonal.TabIndex = 14;
@@ -286,7 +286,7 @@ namespace PaintApplication.View
             // cross
             // 
             this.cross.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cross.BackgroundImage")));
-            this.cross.Location = new System.Drawing.Point(48, 19);
+            this.cross.Location = new System.Drawing.Point(27, 19);
             this.cross.Name = "cross";
             this.cross.Size = new System.Drawing.Size(23, 23);
             this.cross.TabIndex = 15;
@@ -296,7 +296,7 @@ namespace PaintApplication.View
             // diagonalBrick
             // 
             this.diagonalBrick.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("diagonalBrick.BackgroundImage")));
-            this.diagonalBrick.Location = new System.Drawing.Point(80, 19);
+            this.diagonalBrick.Location = new System.Drawing.Point(49, 19);
             this.diagonalBrick.Name = "diagonalBrick";
             this.diagonalBrick.Size = new System.Drawing.Size(23, 23);
             this.diagonalBrick.TabIndex = 16;
@@ -317,9 +317,9 @@ namespace PaintApplication.View
             this.gbBrushes.Controls.Add(this.backwardDiagonal);
             this.gbBrushes.Controls.Add(this.diagonalBrick);
             this.gbBrushes.Controls.Add(this.cross);
-            this.gbBrushes.Location = new System.Drawing.Point(3, 58);
+            this.gbBrushes.Location = new System.Drawing.Point(405, 3);
             this.gbBrushes.Name = "gbBrushes";
-            this.gbBrushes.Size = new System.Drawing.Size(372, 57);
+            this.gbBrushes.Size = new System.Drawing.Size(274, 47);
             this.gbBrushes.TabIndex = 17;
             this.gbBrushes.TabStop = false;
             this.gbBrushes.Text = "Brushes";
@@ -327,7 +327,7 @@ namespace PaintApplication.View
             // largeConfetti
             // 
             this.largeConfetti.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("largeConfetti.BackgroundImage")));
-            this.largeConfetti.Location = new System.Drawing.Point(341, 19);
+            this.largeConfetti.Location = new System.Drawing.Point(246, 19);
             this.largeConfetti.Name = "largeConfetti";
             this.largeConfetti.Size = new System.Drawing.Size(23, 23);
             this.largeConfetti.TabIndex = 25;
@@ -337,7 +337,7 @@ namespace PaintApplication.View
             // darkHorizontal
             // 
             this.darkHorizontal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("darkHorizontal.BackgroundImage")));
-            this.darkHorizontal.Location = new System.Drawing.Point(312, 19);
+            this.darkHorizontal.Location = new System.Drawing.Point(224, 19);
             this.darkHorizontal.Name = "darkHorizontal";
             this.darkHorizontal.Size = new System.Drawing.Size(23, 23);
             this.darkHorizontal.TabIndex = 24;
@@ -347,7 +347,7 @@ namespace PaintApplication.View
             // shingle
             // 
             this.shingle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("shingle.BackgroundImage")));
-            this.shingle.Location = new System.Drawing.Point(283, 19);
+            this.shingle.Location = new System.Drawing.Point(202, 19);
             this.shingle.Name = "shingle";
             this.shingle.Size = new System.Drawing.Size(23, 23);
             this.shingle.TabIndex = 23;
@@ -357,7 +357,7 @@ namespace PaintApplication.View
             // solidDiamond
             // 
             this.solidDiamond.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("solidDiamond.BackgroundImage")));
-            this.solidDiamond.Location = new System.Drawing.Point(254, 19);
+            this.solidDiamond.Location = new System.Drawing.Point(180, 19);
             this.solidDiamond.Name = "solidDiamond";
             this.solidDiamond.Size = new System.Drawing.Size(23, 23);
             this.solidDiamond.TabIndex = 22;
@@ -367,7 +367,7 @@ namespace PaintApplication.View
             // sphere
             // 
             this.sphere.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("sphere.BackgroundImage")));
-            this.sphere.Location = new System.Drawing.Point(225, 19);
+            this.sphere.Location = new System.Drawing.Point(158, 19);
             this.sphere.Name = "sphere";
             this.sphere.Size = new System.Drawing.Size(23, 23);
             this.sphere.TabIndex = 21;
@@ -377,7 +377,7 @@ namespace PaintApplication.View
             // wave
             // 
             this.wave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("wave.BackgroundImage")));
-            this.wave.Location = new System.Drawing.Point(196, 19);
+            this.wave.Location = new System.Drawing.Point(136, 19);
             this.wave.Name = "wave";
             this.wave.Size = new System.Drawing.Size(23, 23);
             this.wave.TabIndex = 20;
@@ -387,7 +387,7 @@ namespace PaintApplication.View
             // largeCheckerBoard
             // 
             this.largeCheckerBoard.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("largeCheckerBoard.BackgroundImage")));
-            this.largeCheckerBoard.Location = new System.Drawing.Point(167, 19);
+            this.largeCheckerBoard.Location = new System.Drawing.Point(114, 19);
             this.largeCheckerBoard.Name = "largeCheckerBoard";
             this.largeCheckerBoard.Size = new System.Drawing.Size(23, 23);
             this.largeCheckerBoard.TabIndex = 19;
@@ -397,7 +397,7 @@ namespace PaintApplication.View
             // zigZag
             // 
             this.zigZag.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("zigZag.BackgroundImage")));
-            this.zigZag.Location = new System.Drawing.Point(138, 19);
+            this.zigZag.Location = new System.Drawing.Point(92, 19);
             this.zigZag.Name = "zigZag";
             this.zigZag.Size = new System.Drawing.Size(23, 23);
             this.zigZag.TabIndex = 18;
@@ -407,7 +407,7 @@ namespace PaintApplication.View
             // smallConfetti
             // 
             this.smallConfetti.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("smallConfetti.BackgroundImage")));
-            this.smallConfetti.Location = new System.Drawing.Point(109, 19);
+            this.smallConfetti.Location = new System.Drawing.Point(70, 19);
             this.smallConfetti.Name = "smallConfetti";
             this.smallConfetti.Size = new System.Drawing.Size(23, 23);
             this.smallConfetti.TabIndex = 17;
@@ -421,25 +421,17 @@ namespace PaintApplication.View
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1344, 615);
+            this.panel1.Size = new System.Drawing.Size(784, 537);
             this.panel1.TabIndex = 18;
-            // 
-            // canvasControl
-            // 
-            this.canvasControl.BackColor = System.Drawing.Color.White;
-            this.canvasControl.Location = new System.Drawing.Point(3, 120);
-            this.canvasControl.Name = "canvasControl";
-            this.canvasControl.Size = new System.Drawing.Size(400, 400);
-            this.canvasControl.TabIndex = 3;
-            this.canvasControl.TabStop = false;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(180)))));
             this.panel2.Controls.Add(this.lbPencilSize);
+            this.panel2.Controls.Add(this.gbBrushes);
             this.panel2.Controls.Add(this.lbColor);
             this.panel2.Controls.Add(this.btnPencil);
             this.panel2.Controls.Add(this.btnRubber);
-            this.panel2.Controls.Add(this.gbBrushes);
             this.panel2.Controls.Add(this.btnBucket);
             this.panel2.Controls.Add(this.btnUndo);
             this.panel2.Controls.Add(this.btnCircle);
@@ -450,13 +442,13 @@ namespace PaintApplication.View
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 24);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1344, 114);
+            this.panel2.Size = new System.Drawing.Size(784, 114);
             this.panel2.TabIndex = 19;
             // 
             // lbPencilSize
             // 
             this.lbPencilSize.AutoSize = true;
-            this.lbPencilSize.Location = new System.Drawing.Point(507, 57);
+            this.lbPencilSize.Location = new System.Drawing.Point(35, 95);
             this.lbPencilSize.Name = "lbPencilSize";
             this.lbPencilSize.Size = new System.Drawing.Size(59, 13);
             this.lbPencilSize.TabIndex = 19;
@@ -465,32 +457,41 @@ namespace PaintApplication.View
             // lbColor
             // 
             this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(448, 58);
+            this.lbColor.Location = new System.Drawing.Point(119, 92);
             this.lbColor.Name = "lbColor";
             this.lbColor.Size = new System.Drawing.Size(31, 13);
             this.lbColor.TabIndex = 18;
             this.lbColor.Text = "Color";
+            // 
+            // canvasControl
+            // 
+            this.canvasControl.BackColor = System.Drawing.Color.White;
+            this.canvasControl.Location = new System.Drawing.Point(3, 120);
+            this.canvasControl.Name = "canvasControl";
+            this.canvasControl.Size = new System.Drawing.Size(400, 400);
+            this.canvasControl.TabIndex = 3;
+            this.canvasControl.TabStop = false;
             // 
             // PaintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1344, 639);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menu);
             this.Name = "PaintForm";
-            this.Text = "PaintForm";
+            this.Text = "Paint";
             ((System.ComponentModel.ISupportInitialize)(this.pbColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeTrackBar)).EndInit();
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.gbBrushes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.canvasControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
